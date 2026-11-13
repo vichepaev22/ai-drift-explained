@@ -1,0 +1,80 @@
+
+name: Deploy Russian AI Research Atlas
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: ai-atlas-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    name: Build data and publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout Russian Atlas
+        uses: actions/checkout@v4
+      - name: Download real Drift Inspector research data
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os,json,urllib.request,concurrent.futures,shutil,time
+          BASE='https://drift.autumnfleet.com/d/all-conf/8284613a3ebc/'
+          out='_site/data'
+          os.makedirs(out+'/derived',exist_ok=True)
+          def fetch(rel):
+              dest=os.path.join(out,rel)
+              os.makedirs(os.path.dirname(dest),exist_ok=True)
+              for attempt in range(4):
+                  try:
+                      req=urllib.request.Request(BASE+rel,headers={'User-Agent':'DriftInspector-RU-Atlas/1.0 (educational research visualization)'})
+                      with urllib.request.urlopen(req,timeout=90) as r,open(dest+'.part','wb') as f:
+                          shutil.copyfileobj(r,f)
+                      os.replace(dest+'.part',dest)
+                      return (rel,os.path.getsize(dest))
+                  except Exception as e:
+                      if os.path.exists(dest+'.part'):os.unlink(dest+'.part')
+                      if attempt==3:raise RuntimeError(f'{rel}: {e}')
+                      time.sleep((attempt+1)*2)
+          first=['manifest.json','topics.json','map.json','members.json','papers.json','derived/aggregates.json']
+          with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+              for rel,n in pool.map(fetch,first):print('Downloaded',rel,n,flush=True)
+          with open(out+'/manifest.json',encoding='utf-8') as f:m=json.load(f)
+          assert m['counts']['papers']==117888 and m['counts']['claims']==570179,m['counts']
+          files=[f'claims-{i:02d}.json' for i in range(m['claimShards'])]
+          # Author shards are retained for extended analysis and future filters.
+          files += [f'authors-{i:02d}.json' for i in range(m['authorShards'])]
+          total=0
+          with concurrent.futures.ThreadPoolExecutor(max_workers=16) as pool:
+              for idx,(rel,size) in enumerate(pool.map(fetch,files),1):
+                  total+=size
+                  if idx%25==0:print('Downloaded shards',idx,'/',len(files),'bytes',total,flush=True)
+          print('COMPLETE: 570179 claims, 117888 papers, 98 topics;',len(files),'lazy-loaded shards',flush=True)
+          PY
+      - name: Prepare static website
+        run: |
+          mkdir -p _site/assets
+          cp index.html style.css app.js visual.js _site/
+          cp assets/favicon.svg assets/share.png _site/assets/
+          mkdir -p _site/vendor
+          curl --fail --location --retry 3 --silent --show-error https://cdnjs.cloudflare.com/ajax/libs/three.js/0.180.0/three.module.min.js -o _site/vendor/three.module.min.js
+          curl --fail --location --retry 3 --silent --show-error https://cdnjs.cloudflare.com/ajax/libs/three.js/0.180.0/three.core.min.js -o _site/vendor/three.core.min.js
+          touch _site/.nojekyll
+          du -sh _site
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4
+
