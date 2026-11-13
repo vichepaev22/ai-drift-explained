@@ -82,6 +82,12 @@ jobs:
           test -s _site/data/members.json
           test -s _site/data/papers.json
           du -sh _site
+      - name: Install Chromium browser for end-to-end smoke test
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test published-site behaviour in a real browser
+        run: node tests/browser-smoke.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload to Pages
