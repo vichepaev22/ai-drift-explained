@@ -21,6 +21,16 @@ jobs:
     steps:
       - name: Checkout Russian Atlas
         uses: actions/checkout@v4
+      - name: Set up Node for static and unit tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript and research metrics
+        run: |
+          node --check app.js
+          node --check visual.js
+          node --check metrics.mjs
+          node --test tests/*.test.mjs
       - name: Download real Drift Inspector research data
         shell: bash
         run: |
@@ -47,7 +57,7 @@ jobs:
           with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
               for rel,n in pool.map(fetch,first):print('Downloaded',rel,n,flush=True)
           with open(out+'/manifest.json',encoding='utf-8') as f:m=json.load(f)
-          assert m['counts']['papers']==117888 and m['counts']['claims']==570179,m['counts']
+          assert m['counts']['papers']==117888 and m['counts']['claims']==570179 and m['counts']['topics']==98,m['counts']
           files=[f'claims-{i:02d}.json' for i in range(m['claimShards'])]
           # Author shards are retained for extended analysis and future filters.
           files += [f'authors-{i:02d}.json' for i in range(m['authorShards'])]
@@ -61,12 +71,16 @@ jobs:
       - name: Prepare static website
         run: |
           mkdir -p _site/assets
-          cp index.html style.css app.js visual.js _site/
+          cp index.html style.css app.js visual.js metrics.mjs _site/
           cp assets/favicon.svg assets/share.png _site/assets/
           mkdir -p _site/vendor
           curl --fail --location --retry 3 --silent --show-error https://cdnjs.cloudflare.com/ajax/libs/three.js/0.180.0/three.module.min.js -o _site/vendor/three.module.min.js
           curl --fail --location --retry 3 --silent --show-error https://cdnjs.cloudflare.com/ajax/libs/three.js/0.180.0/three.core.min.js -o _site/vendor/three.core.min.js
           touch _site/.nojekyll
+          test -s _site/metrics.mjs
+          test -s _site/data/map.json
+          test -s _site/data/members.json
+          test -s _site/data/papers.json
           du -sh _site
       - name: Configure Pages
         uses: actions/configure-pages@v5
