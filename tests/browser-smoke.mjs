@@ -28,7 +28,7 @@ try {
   page.on('console',m=>{if(m.type()==='error')errors.push('Console error: '+m.text())});
   page.on('response',r=>{if(r.status()>=400)errors.push('HTTP '+r.status()+' '+r.url())});
   await page.goto(base,{waitUntil:'domcontentloaded',timeout:20000});
-  await page.waitForFunction(()=>document.querySelector('#dataset-status')?.textContent.includes('Научная база доступна'),{timeout:30000});
+  await page.waitForFunction(()=>document.querySelector('#dataset-status')?.textContent.includes('Научная база доступна'),null,{timeout:30000});
   console.log('PASS: scientific metadata loaded');
   await page.locator('[data-view="topics"]').click();
   assert.equal(await page.locator('#view-topics').isVisible(),true,'Topics must become visible');
@@ -45,11 +45,11 @@ try {
   assert.ok(await page.locator('#trend-chart svg').count()>0,'Selected trend must render chart');
   console.log('PASS: trends clear and reselect');
   await page.locator('[data-view="compare"]').click();
-  await page.waitForFunction(()=>document.querySelector('#compare-summary')?.textContent.includes('статей'),{timeout:60000});
+  await page.waitForFunction(()=>document.querySelector('#compare-summary')?.textContent.includes('статей'),null,{timeout:60000});
   assert.ok(await page.locator('#compare-chart .compare-row').count()>0,'Compare must show rows');
   console.log('PASS: paper comparison');
   await page.locator('[data-view="map"]').click();
-  await page.waitForFunction(()=>document.querySelector('#map-selection')?.textContent.includes('Отрисовано'),{timeout:80000});
+  await page.waitForFunction(()=>document.querySelector('#map-selection')?.textContent.includes('Отрисовано'),null,{timeout:80000});
   await page.locator('#map-year').selectOption('2026');
   await page.waitForTimeout(500);
   assert.match(await page.locator('#map-selection').innerText(),/Отрисовано/);
