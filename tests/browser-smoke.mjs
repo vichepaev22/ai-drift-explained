@@ -77,7 +77,6 @@ try {
   assert.equal(await page.locator('#primary-nav').evaluate(el=>el.classList.contains('open')),true);
   await page.locator('#sidebar-backdrop').click({position:{x:350,y:350}});
   assert.equal(await page.locator('#primary-nav').evaluate(el=>el.classList.contains('open')),false);
-  await page.locator('[data-view="map"]').click();
   const mobileMap=await page.evaluate(()=>({
     asideHeight:document.querySelector('.map-aside').getBoundingClientRect().height,
     canvasHeight:document.querySelector('#map-canvas').getBoundingClientRect().height,
