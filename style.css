@@ -32,129 +32,6 @@
 .light .compare-row:hover,.light .trend-row:hover{background:#edf5fa}
 @media(max-width:760px){.sidebar-backdrop:not([hidden]){display:block}.hero-copy h1{overflow-wrap:anywhere}.map-toolbar .mini-btn{min-height:36px}#retry-data{margin:10px 0 0}}
 
-
-/* Readability pass · UPR audit · 2026-11-13
-   Keep the established palette and typefaces; improve the text scale,
-   space for long Russian topic names, and responsive comparison charts. */
-:root{--reading-size:14px;--reading-small:12px}
-.brand small{font-size:10px}
-.nav-caption{font-size:11px}
-.nav-link{font-size:14px}
-.nav-index{font-size:11px}
-.status,.sidebar-bottom p{font-size:12px}
-.credits-mini{font-size:10px}
-.breadcrumb,.period-pill,.source-btn{font-size:12px}
-.eyebrow{font-size:11px}
-.hero-copy p{font-size:15px}
-.primary-btn,.ghost-btn,.text-btn{font-size:13px}
-.stat-card>div{font-size:11px}
-.stat-card small{font-size:12px}
-.signal .tag,.signal small,.feature-num,.feature-card b{font-size:12px}
-.feature-card p{font-size:13px}
-.page-head p{font-size:14px}
-.data-pill{font-size:12px}
-
-/* Map: expand the topic navigator to the left without stretching the map. */
-.map-area{grid-template-columns:minmax(0,1fr) 320px;min-height:630px;height:670px}
-.map-toolbar{gap:13px}
-.map-toolbar label,.cohort label{font-size:12px}
-.map-toolbar select,.cohort select,.topics-toolbar select{font-size:13px}
-.mini-btn{font-size:12px;min-height:37px}
-.map-help,.map-footer{font-size:12px}
-.aside-title{font-size:13px;line-height:1.4;padding:18px 16px 13px}
-#map-topic-search{font-size:13px}
-.all-topics{font-size:13px}
-.map-topic-row{font-size:13px;line-height:1.45;padding:10px 8px;overflow-wrap:anywhere}
-.map-topic-row span:last-child{font-size:11px;flex-shrink:0}
-.aside-bottom{font-size:11px;gap:6px;flex-wrap:wrap}
-.map-placeholder small,.map-tip{font-size:12px}
-.map-tip b{font-size:13px}
-
-/* Topics: readable list and detail labels. */
-.topics-toolbar input{font-size:14px}
-.topics-toolbar select{font-size:13px}
-.topic-layout{grid-template-columns:minmax(270px,40%) minmax(0,1fr)}
-.topic-row{padding:14px 15px}
-.topic-name{font-size:14px;overflow-wrap:anywhere}
-.topic-row small{font-size:12px}
-.delta{font-size:13px}
-.topic-detail h2{font-size:28px}
-.topic-detail .en,.topic-meta span{font-size:12px}
-.topic-meta strong{font-size:22px}
-.detail-keywords{font-size:13px;line-height:1.7}
-.keyword{font-size:12px}
-
-/* Trends: larger rankings, descriptions and graph labels. */
-.trends-controls>span,.compare-metrics>span:first-child{font-size:12px}
-.chip{font-size:13px;min-height:39px}
-.ctl-note{font-size:12px}
-.panel-heading{flex-wrap:wrap}
-.panel-heading h3{font-size:17px}
-.panel-heading small{font-size:12px}
-.trend-row{padding:11px 4px 13px}
-.trend-row-head{font-size:13px;gap:12px}
-.trend-row-head span{line-height:1.5}
-.chart-caption,.chart-legend span{font-size:12px}
-.svg-chart text{font-size:12px}
-
-/* Comparison: metric controls and both columns of measured differences. */
-.cohort-label{font-size:13px}
-.cohort select{font-size:14px;min-height:41px}
-.compare-metrics #compare-summary{font-size:12px;overflow-wrap:anywhere}
-.compare-row{grid-template-columns:minmax(190px,32%) minmax(0,1fr) 90px}
-.compare-row .name{font-size:13px;line-height:1.45;overflow-wrap:anywhere}
-.compare-row .diff-value{font-size:14px}
-.method-card>span{font-size:12px}
-.method-card p,.source-panel p{font-size:14px}
-.method-links a{font-size:12px}
-.footer{font-size:11px}
-.claim-drawer .drawer-kicker{font-size:12px}
-.claim-drawer .meta,.claim-drawer a{font-size:12px}
-.claim-drawer p{font-size:14px}
-
-/* Laptop: keep the map usable when the document narrows. */
-@media(max-width:1360px){
-  .map-area{grid-template-columns:minmax(0,1fr) 292px}
-}
-@media(max-width:1100px) and (min-width:761px){
-  .map-area{height:810px;display:flex;flex-direction:column}
-  .map-area #map-canvas{height:530px;flex:1 1 auto;min-height:420px}
-  .map-aside{height:280px;flex:0 0 280px;border-left:0;border-top:1px solid var(--border)}
-  .map-topic-list{overflow-y:auto}
-  .topic-layout{grid-template-columns:minmax(235px,40%) minmax(0,1fr)}
-}
-@media(max-width:760px){
-  .sidebar{width:min(290px,90vw)}
-  .breadcrumb{font-size:10px}
-  .source-btn{font-size:10px}
-  .hero-copy p{font-size:14px}
-  .stat-card>div{font-size:10px}
-  .stat-card small{font-size:11px}
-  .page-head p{font-size:13px}
-  .map-help{font-size:11px;line-height:1.5}
-  .map-area{height:770px;min-height:0;display:flex;flex-direction:column}
-  .map-area #map-canvas{height:430px;min-height:0;flex:0 0 430px}
-  .map-aside{height:340px;flex:0 0 340px;border-left:0;border-top:1px solid var(--border)}
-  .map-aside .aside-title{font-size:12px;padding:12px 14px}
-  .map-aside #map-topic-search{font-size:13px}
-  .map-topic-row{font-size:12px;padding:9px 7px}
-  .map-footer{font-size:11px}
-  .topics-toolbar{flex-wrap:wrap}
-  .topics-toolbar input{flex-basis:100%;width:100%}
-  .topics-toolbar select{width:100%;max-width:none}
-  .topic-layout{grid-template-columns:1fr}
-  .topic-list{max-height:325px}
-  .topic-name{font-size:13px}
-  .topic-detail h2{font-size:25px}
-  .panel-heading h3{font-size:16px}
-  .trend-row-head{font-size:13px}
-  .compare-row{grid-template-columns:minmax(0,40%) minmax(0,1fr) 68px;gap:8px}
-  .compare-row .name{font-size:12px}
-  .compare-row .diff-value{font-size:12px}
-  .compare-metrics #compare-summary{width:100%;margin-left:0}
-  .footer{font-size:10px}
-}
-
 /* Readable analytics UI — November 2026
    All typographic changes preserve the existing visual hierarchy and palette. */
 :root{
@@ -277,7 +154,7 @@
   .compare-row{grid-template-columns:minmax(145px,33%) minmax(0,1fr) 85px}
 }
 /* Stack map and topics on compact tablets instead of crushing the scientific plot. */
-@media (min-width:761px) and (max-width:930px){
+@media (min-width:761px) and (max-width:1100px){
   .map-area{display:flex;flex-direction:column;height:810px;min-height:0}
   .map-area #map-canvas{height:520px;flex:0 0 520px;min-height:0}
   .map-aside{height:290px;min-height:0;border-left:0;border-top:1px solid var(--border)}
@@ -332,3 +209,9 @@
   .map-aside{height:330px}
   .map-area{height:730px}
 }
+
+/* Wrapping fixes for long Russian names and compact filters. */
+.map-topic-row b,.topic-row>div:first-child{min-width:0;flex:1}
+.panel-heading{flex-wrap:wrap}
+.map-tip{font-size:12px}.map-tip b{font-size:13px}
+@media(max-width:760px){.topics-toolbar{flex-wrap:wrap}.topics-toolbar input{flex-basis:100%;width:100%}.topics-toolbar select{width:100%;max-width:none}}
