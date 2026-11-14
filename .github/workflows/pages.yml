@@ -31,6 +31,11 @@ jobs:
           node --check visual.js
           node --check metrics.mjs
           node --test tests/*.test.mjs
+      - name: Modern Web Guidance compatibility audit (informational)
+        continue-on-error: true
+        env:
+          DISABLE_TELEMETRY: '1'
+        run: npx --yes modern-web-guidance@1.0.0 legacy-scan .
       - name: Download real Drift Inspector research data
         shell: bash
         run: |

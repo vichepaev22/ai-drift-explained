@@ -55,6 +55,20 @@ try {
   const metricFont=await page.locator('#view-compare .chip').first().evaluate(node=>parseFloat(getComputedStyle(node).fontSize));
   assert.ok(compareFont>=13&&metricFont>=12.5,'Comparison typography too small: '+compareFont+'/'+metricFont);
   console.log('PASS: paper comparison and readable metric controls');
+  await page.locator('[data-view="topics"]').click();
+  await page.locator('#topic-search').fill('');
+  await page.locator('#topic-open-paper').click();
+  await page.waitForFunction(()=>document.querySelector('#claim-drawer')?.matches(':modal'),null,{timeout:10000});
+  const articleDialog=await page.locator('#claim-drawer').evaluate(dialog=>({
+    open:dialog.open, modal:dialog.matches(':modal'),
+    focusInside:dialog.contains(document.activeElement)
+  }));
+  assert.ok(articleDialog.open&&articleDialog.modal&&articleDialog.focusInside,
+    'Research article must open as accessible native modal: '+JSON.stringify(articleDialog));
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('#claim-drawer').evaluate(dialog=>dialog.open),false,
+    'Escape must close native article dialog');
+  console.log('PASS: native modal article drawer, focus and Escape dismissal');
   await page.locator('[data-view="map"]').click();
   await page.waitForFunction(()=>document.querySelector('#map-selection')?.textContent.includes('Отрисовано'),null,{timeout:80000});
   await page.locator('#map-year').selectOption('2026');
@@ -75,8 +89,23 @@ try {
   await page.setViewportSize({width:390,height:844});
   await page.locator('#menu-btn').click();
   assert.equal(await page.locator('#primary-nav').evaluate(el=>el.classList.contains('open')),true);
+  assert.equal(await page.locator('.workspace').evaluate(el=>el.inert),true,'Page behind mobile nav must be inert');
+  assert.equal(await page.locator('#primary-nav').evaluate(el=>el.contains(document.activeElement)),true,
+    'Focus must move inside mobile drawer');
   await page.locator('#sidebar-backdrop').click({position:{x:350,y:350}});
   assert.equal(await page.locator('#primary-nav').evaluate(el=>el.classList.contains('open')),false);
+  assert.equal(await page.locator('.workspace').evaluate(el=>el.inert),false,'Page restored on close');
+  await page.waitForTimeout(500); // ResizeObserver repaints at the new container size.
+  const canvasShape=await page.locator('#map-canvas').evaluate(host=>{
+    const canvas=host.querySelector('canvas');
+    return canvas?{
+      hostRatio:host.clientWidth/host.clientHeight,
+      bufferRatio:canvas.width/canvas.height,
+      width:host.clientWidth,bufferWidth:canvas.width
+    }:null;
+  });
+  assert.ok(canvasShape&&Math.abs(canvasShape.hostRatio-canvasShape.bufferRatio)<.12,
+    'Canvas drawing buffer must follow the container aspect ratio: '+JSON.stringify(canvasShape));
   const mobileMap=await page.evaluate(()=>({
     asideHeight:document.querySelector('.map-aside').getBoundingClientRect().height,
     canvasHeight:document.querySelector('#map-canvas').getBoundingClientRect().height,
@@ -87,6 +116,8 @@ try {
   assert.ok(mobileMap.topicFont>=13,'Mobile topics font too small: '+mobileMap.topicFont);
   assert.ok(mobileMap.scrollWidth<=mobileMap.viewport+2,'Horizontal overflow on mobile: '+JSON.stringify(mobileMap));
   console.log('PASS: mobile sidebar and responsive map typography',mobileMap);
+  const fatal=errors.filter(msg=>msg.startsWith('Page error:'));
+  assert.equal(fatal.length,0,'Unexpected JavaScript error: '+JSON.stringify(fatal));
   if(errors.length)console.warn('Non-fatal browser warnings:',errors.slice(0,12));
 } catch(e) {
   console.error('FAIL: browser smoke test:',e.message);

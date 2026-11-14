@@ -3,7 +3,7 @@
 <title>Атлас ИИ — интерактивная карта научных трендов 2018–2026</title>
 <meta name="description" content="Куда движется искусственный интеллект? Интерактивная карта 570 179 научных утверждений: темы, рост и спад, сравнение конференций, реальные статьи.">
 <meta property="og:type" content="website"><meta property="og:title" content="Атлас ИИ — карта научных трендов"><meta property="og:description" content="118 тысяч исследований, 570 тысяч утверждений и 98 направлений. На русском языке.">
-<meta property="og:image" content="https://vichepaev22.github.io/ai-drift-explained/assets/share.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="./assets/favicon.svg"><link rel="stylesheet" href="./style.css?v=20261113-readable-v2">
+<meta property="og:image" content="https://vichepaev22.github.io/ai-drift-explained/assets/share.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="./assets/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="./style.css?v=20261115-01">
 <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script></head>
 <body>
 <a class="skip-link" href="#main-content">Перейти к содержимому</a>
@@ -29,7 +29,7 @@
   </div>
 </aside>
 <div class="workspace">
-  <header class="topbar"><button id="menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">☰</button><div class="breadcrumb">НАУЧНАЯ АНАЛИТИКА <span>/</span> <b id="breadcrumb-name">ОБЗОР</b></div><div class="top-actions"><span class="period-pill">2018 <span>—</span> 2026</span><button id="theme-btn" class="icon-btn" aria-label="Переключить тему">☼</button><a class="source-btn" href="https://drift.autumnfleet.com/i/all-conf/" target="_blank" rel="noopener">ПЕРВОИСТОЧНИК ↗</a></div></header>
+  <header class="topbar"><button id="menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">☰</button><div class="breadcrumb">НАУЧНАЯ АНАЛИТИКА <span>/</span> <b id="breadcrumb-name" aria-live="polite">ОБЗОР</b></div><div class="top-actions"><span class="period-pill">2018 <span>—</span> 2026</span><button id="theme-btn" class="icon-btn" aria-label="Переключить тему">☼</button><a class="source-btn" href="https://drift.autumnfleet.com/i/all-conf/" target="_blank" rel="noopener">ПЕРВОИСТОЧНИК ↗</a></div></header>
   <main id="main-content">
   <section id="view-overview" class="view active">
     <div class="overview-hero">
@@ -73,7 +73,6 @@
   </main>
   <footer class="footer"><span>АТОМАРНЫЕ УТВЕРЖДЕНИЯ · ОТКРЫТАЯ НАУКА</span><span>Независимая русская визуализация Drift Inspector · 2026</span><a href="https://github.com/Hamyrappy/drift-inspector" target="_blank" rel="noopener">ИСТОЧНИК ДАННЫХ ↗</a></footer>
 </div></div>
-<div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
-<aside id="claim-drawer" class="claim-drawer" aria-live="polite"><button id="drawer-close" class="drawer-close" aria-label="Закрыть">×</button><div id="drawer-content"></div></aside>
+<dialog id="claim-drawer" class="claim-drawer" aria-label="Научная публикация" closedby="any"><div class="drawer-inner"><button id="drawer-close" type="button" class="drawer-close" aria-label="Закрыть">×</button><div id="drawer-content" aria-live="polite"></div></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script type="module" src="./app.js?v=20261113-07"></script></body></html>
+<script type="module" src="./app.js?v=20261115-01"></script></body></html>
