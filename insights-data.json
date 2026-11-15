@@ -1,0 +1,2037 @@
+{
+  "version": 1,
+  "provenance": {
+    "source": "Drift Inspector / all-conf",
+    "sourceUrl": "https://drift.autumnfleet.com/i/all-conf/",
+    "sourceFingerprint": "238f516c60fb754806e74accb5587e2f61c916faaaa619700cbd47eddaa3e482",
+    "paperUrl": "https://aclanthology.org/2026.emnlp-demos.13/",
+    "corpus": {
+      "papers": 117888,
+      "claims": 570179,
+      "topics": 98,
+      "years": [
+        2018,
+        2026
+      ]
+    },
+    "notes": [
+      "Основные числовые тенденции рассчитаны по долям публикаций в наборе all-conf 2018–2026.",
+      "Выводы по эксперименту EMNLP 2020–2025 относятся к другой, отдельно сбалансированной выборке.",
+      "Пояснения тем — редакционная интерпретация названий научных групп и примеров статей; это не цитаты из результатов конкретных работ.",
+      "2026 год в опубликованном наборе может быть неполным, а методы классификации могут допускать ошибки.",
+      "Примеры публикаций отобраны по тематической принадлежности в опубликованной базе, а не как независимая проверка эффективности технологии."
+    ]
+  },
+  "authorFinding": {
+    "title": "Что показало отдельное исследование авторов?",
+    "text": "На специально выровненной выборке из 4 488 статей EMNLP за 2020–2025 годы авторы обнаружили снижение доли классических задач NLP и рост направлений, связанных с рассуждением и мультимодальностью.",
+    "details": "Например, в этой выборке доля работ о vision-language моделях выросла в 3,1 раза, об ИИ-агентах — в 10,3 раза, а синтаксический анализ снизился примерно на 97% относительно своей исходной доли. Эти коэффициенты нельзя напрямую переносить на всю базу из 117 888 статей.",
+    "source": "https://arxiv.org/html/2609.39710"
+  },
+  "stories": [
+    {
+      "id": "reasoning",
+      "kind": "growth",
+      "topicIds": [
+        7
+      ],
+      "title": "В центре исследований — способность ИИ рассуждать",
+      "summary": "Работы всё чаще посвящены цепочкам рассуждений: как модели строят многошаговые решения, насколько им можно доверять и как сократить лишние вычисления.",
+      "meaning": "Важно не только получить ответ, но и понимать, как проверять промежуточные шаги. Это исследовательское направление, а не доказательство, что модели всегда рассуждают правильно."
+    },
+    {
+      "id": "multimodal",
+      "kind": "growth",
+      "topicIds": [
+        12,
+        18
+      ],
+      "title": "Текст и изображения объединяются в одной системе",
+      "summary": "Исследователи всё больше проверяют, как модели одновременно интерпретируют изображение и текст, связывают разные виды данных и решают задачи пространственного понимания.",
+      "meaning": "Здесь развиваются подходы, которые потенциально полезны для анализа документов, изображений, интерфейсов и видео. Реальные возможности зависят от конкретной модели."
+    },
+    {
+      "id": "agents",
+      "kind": "growth",
+      "topicIds": [
+        20,
+        75
+      ],
+      "title": "ИИ-агенты становятся отдельным направлением исследований",
+      "summary": "Отдельное направление посвящено моделям, которые выполняют последовательности действий, планируют шаги и работают в меняющихся условиях. Исследователи создают тесты для проверки агентов.",
+      "meaning": "Такие исследования помогают отличать красивую демонстрацию от проверяемой способности выполнить задачу. Рост публикаций не доказывает надёжность реальных автономных систем."
+    },
+    {
+      "id": "efficiency",
+      "kind": "growth",
+      "topicIds": [
+        28,
+        21,
+        52
+      ],
+      "title": "Как уменьшить вычислительные затраты моделей?",
+      "summary": "Изучаются способы обрабатывать меньше лишних токенов, передавать знания компактным моделям и ускорять работу трансформеров.",
+      "meaning": "Тема важна для стоимости и задержки ИИ-приложений, но цифры атласа показывают интерес исследователей, а не достигнутую экономию."
+    },
+    {
+      "id": "rag",
+      "kind": "growth",
+      "topicIds": [
+        19
+      ],
+      "title": "Зачем языковым моделям поиск по документам (RAG)?",
+      "summary": "В работах по RAG модели соединяют с извлечением подходящих документов и фактов. Отдельно изучают, как выбирать материалы для ответа.",
+      "meaning": "Это направление полезно для понимания ИИ-поиска по документам и базам знаний. Наличие поиска не гарантирует, что готовый ответ будет верным."
+    },
+    {
+      "id": "diffusion",
+      "kind": "growth",
+      "topicIds": [
+        22,
+        40,
+        72
+      ],
+      "title": "Генеративные модели изучают с точки зрения скорости и контроля",
+      "summary": "Публикации о диффузионных моделях рассматривают ускорение генерации, способы управления результатом и редактирование изображений по тексту.",
+      "meaning": "Читателю это помогает разобраться, почему исследователи ищут баланс между управляемостью генерации, качеством и затратами."
+    },
+    {
+      "id": "bio",
+      "kind": "growth",
+      "topicIds": [
+        11
+      ],
+      "title": "ИИ изучают и для проектирования молекул и белков",
+      "summary": "В научных работах встречаются модели для представления молекулярных структур, проектирования белков и поиска новых кандидатов.",
+      "meaning": "Это пример исследований за пределами текстовых ассистентов. Публикации о моделях не равны подтверждённым медицинским результатам или готовым лекарствам."
+    },
+    {
+      "id": "code",
+      "kind": "growth",
+      "topicIds": [
+        42
+      ],
+      "title": "Генерацию кода всё чаще сопровождают проверкой",
+      "summary": "Исследования сравнивают модели на заданиях по программированию: учитывают следование инструкции, корректность результата и способы автоматической проверки.",
+      "meaning": "Для разработчиков это напоминание: способность сгенерировать код и способность доказать его правильность — разные вещи."
+    },
+    {
+      "id": "reliability",
+      "kind": "growth",
+      "topicIds": [
+        70,
+        68
+      ],
+      "title": "Ошибки ИИ и способы их обнаружения — отдельная тема",
+      "summary": "Учёные исследуют вымышленные ответы, несоответствия изображениям и фактам, а также сравнение автоматических оценок с мнением людей.",
+      "meaning": "Тема важна там, где ошибочный ответ имеет последствия. Сам факт активности исследований не означает, что проблема галлюцинаций решена."
+    },
+    {
+      "id": "language",
+      "kind": "growth",
+      "topicIds": [
+        5
+      ],
+      "title": "Многоязычность становится вопросом качества моделей",
+      "summary": "Работы рассматривают, как большие языковые модели справляются с разными языками, в том числе при ограниченном количестве обучающих данных.",
+      "meaning": "Это помогает задавать правильные вопросы о качестве ИИ не только на английском языке — включая оценку и безопасность."
+    },
+    {
+      "id": "classic",
+      "kind": "decline",
+      "topicIds": [
+        17,
+        49,
+        31
+      ],
+      "title": "Некоторые классические задачи NLP реже становятся темой отдельных работ",
+      "summary": "В наборе данных уменьшилась доля статей о машинном переводе, синтаксическом анализе и традиционных представлениях текста. Это относительное изменение в потоке публикаций.",
+      "meaning": "Такие технологии не исчезли. Они могут использоваться как части более крупных моделей или изучаться под другими тематическими названиями."
+    },
+    {
+      "id": "foundations",
+      "kind": "decline",
+      "topicIds": [
+        6,
+        0
+      ],
+      "title": "Меньше относительного внимания некоторым старым методам",
+      "summary": "В выборке снижается доля исследований ряда подходов к обучению нейросетей и сходимости градиентных методов.",
+      "meaning": "Это не означает, что математическая основа больше не нужна: речь только об изменении доли публикаций в выбранной научной базе."
+    },
+    {
+      "id": "robots",
+      "kind": "growth",
+      "topicIds": [
+        39
+      ],
+      "title": "Исследования ИИ связаны и с действиями в физическом мире",
+      "summary": "Отдельная группа работ посвящена тому, как роботы ориентируются, выбирают движения и манипулируют предметами.",
+      "meaning": "Это помогает отличать исследования управления реальными действиями от задач, где модель работает только с текстом."
+    }
+  ],
+  "topics": [
+    {
+      "id": 0,
+      "what": "Изучают, при каких условиях методы пошаговой настройки приближаются к решению задачи и как на это влияют случайность и сложность ландшафта.",
+      "why": "Это помогает понимать, насколько предсказуемо обучение моделей и какие условия важно учитывать при выборе метода.",
+      "examples": [
+        {
+          "title": "Taming Stochastic Gradient Descent: Almost Sure Convergence and Saddle-Point Avoidance under $(L_0,L_1)$-Smoothness",
+          "url": "https://proceedings.mlr.press/v306/apidopoulos26a.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "The Global Convergence Time of Stochastic Gradient Descent in Non-Convex Landscapes: Sharp Estimates via Large Deviations",
+          "url": "https://proceedings.mlr.press/v267/azizian25a.html",
+          "venue": "ICML",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "what": "Исследуют, как сопоставлять новые методы с уже существующими на общих наборах данных и по единым правилам измерения качества.",
+      "why": "Понимание правил сравнения помогает оценивать результаты исследований и выбирать подходящие инструменты для задачи.",
+      "examples": [
+        {
+          "title": "Rethinking No-reference Image Exposure Assessment from Holism to Pixel: Models, Datasets and Benchmarks",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/eda3ee49bf6e868c35dc741948517891-Abstract-Conference.html",
+          "venue": "NeurIPS",
+          "year": 2024
+        },
+        {
+          "title": "SPEED-Bench: A Unified and Diverse Benchmark for Speculative Decoding",
+          "url": "https://proceedings.mlr.press/v306/abramovich26a.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "what": "Рассматривают, как намеренно изменённые данные могут сбивать модель с толку и какие способы защиты проверяют на таких примерах.",
+      "why": "Это важно при оценке рисков использования моделей и планировании проверок перед их применением.",
+      "examples": [
+        {
+          "title": "Certifying Language Model Robustness with Fuzzed Randomized Smoothing: An Efficient Defense Against Backdoor Attacks",
+          "url": "https://openreview.net/forum?id=USI3ZbuFaV",
+          "venue": "ICLR",
+          "year": 2025
+        },
+        {
+          "title": "Understanding the Robustness of Randomized Feature Defense Against Query-Based Adversarial Attacks",
+          "url": "https://openreview.net/forum?id=vZ6r9GMT1n",
+          "venue": "ICLR",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "what": "Изучают модели, которые обрабатывают объекты вместе со связями между ними, например узлы сети, и решают задачи их классификации.",
+      "why": "Такие методы могут быть полезны для анализа данных, где важны не только объекты, но и отношения между ними.",
+      "examples": [
+        {
+          "title": "Bounding the Expected Robustness of Graph Neural Networks Subject to Node Feature Attacks",
+          "url": "https://openreview.net/forum?id=DfPtC8uSot",
+          "venue": "ICLR",
+          "year": 2024
+        },
+        {
+          "title": "Adversarial Attacks and Robust Training for Hypergraph Neural Networks",
+          "url": "https://proceedings.mlr.press/v306/arafat26a.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "what": "Исследуют, как разделять изображение на области: обозначать тип каждого участка, находить отдельные объекты и выделять их границы.",
+      "why": "Это помогает понять, как компьютерные системы могут описывать содержимое снимков и изображений.",
+      "examples": [
+        {
+          "title": "SPEGC: Continual Test-Time Adaptation via Semantic-Prompt-Enhanced Graph Clustering for Medical Image Segmentation",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Du_SPEGC_Continual_Test-Time_Adaptation_via_Semantic-Prompt-Enhanced_Graph_Clustering_for_Medical_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Mitigating Objectness Bias and Region-to-Text Misalignment for Open-Vocabulary Panoptic Segmentation",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Kormushev_Mitigating_Objectness_Bias_and_Region-to-Text_Misalignment_for_Open-Vocabulary_Panoptic_Segmentation_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "what": "Сравнивают языковые модели на разных языках и изучают, как оценивать их ответы, в том числе после дополнительного обучения.",
+      "why": "Это помогает учитывать языковые различия при выборе и проверке инструментов для работы с текстом.",
+      "examples": [
+        {
+          "title": "EthioLLM: Multilingual Large Language Models for Ethiopian Languages with Task Evaluation",
+          "url": "https://aclanthology.org/2024.lrec-main.561/",
+          "venue": "COLING",
+          "year": 2024
+        },
+        {
+          "title": "Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation",
+          "url": "https://aclanthology.org/2026.acl-long.1105/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "what": "Изучают обучение глубоких нейронных сетей по отдельным слоям: как выстраивать этот процесс и оценивать его влияние на работу модели.",
+      "why": "Понимание подходов к обучению помогает исследователям планировать разработку сложных нейронных сетей.",
+      "examples": [
+        {
+          "title": "Flow-field inference from neural data using deep recurrent networks",
+          "url": "https://proceedings.mlr.press/v267/kim25z.html",
+          "venue": "ICML",
+          "year": 2025
+        },
+        {
+          "title": "Universal Consistency of Wide and Deep ReLU Neural Networks and Minimax Optimal Convergence Rates for Kolmogorov-Donoho Optimal Function Classes",
+          "url": "https://proceedings.mlr.press/v235/ko24b.html",
+          "venue": "ICML",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "what": "Рассматривают, как языковые модели строят рассуждения шаг за шагом и сколько вычислений требуется для решения, например, математических задач.",
+      "why": "Это помогает оценивать затраты и ограничения систем, которым поручают задачи с несколькими этапами рассуждения.",
+      "examples": [
+        {
+          "title": "Schoenfeld's Anatomy of Mathematical Reasoning by Language Models",
+          "url": "https://aclanthology.org/2026.acl-long.1513/",
+          "venue": "ACL",
+          "year": 2026
+        },
+        {
+          "title": "GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models",
+          "url": "https://openreview.net/forum?id=AjXkRZIvjB",
+          "venue": "ICLR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "what": "Изучают модели, работающие со звуком и речью: как их обучают, проверяют и приспосабливают к распознаванию разных аудиосигналов.",
+      "why": "Это помогает понимать возможности и ограничения инструментов для работы с речью, музыкой и другими звуками.",
+      "examples": [
+        {
+          "title": "Revisiting Audio-language Pretraining for Learning General-purpose Audio Representation",
+          "url": "https://aclanthology.org/2026.acl-long.1581/",
+          "venue": "ACL",
+          "year": 2026
+        },
+        {
+          "title": "Speech-Hands: A Self-Reflection Voice Agentic Approach to Speech Recognition and Audio Reasoning with Omni Perception",
+          "url": "https://aclanthology.org/2026.acl-long.1997/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "what": "Исследуют способы, наборы данных и правила проверки систем, которые отвечают на вопросы по текстам или накопленным знаниям.",
+      "why": "Это помогает разобраться, как проверяют ответы систем и какие типы вопросов требуют отдельной оценки.",
+      "examples": [
+        {
+          "title": "MINTQA: A Multi-Hop Question Answering Benchmark for Evaluating LLMs on New and Long-tail Knowledge",
+          "url": "https://aclanthology.org/2026.acl-long.18/",
+          "venue": "ACL",
+          "year": 2026
+        },
+        {
+          "title": "KBQA-R1: Reinforcing Large Language Models for Knowledge Base Question Answering",
+          "url": "https://proceedings.mlr.press/v306/sun26h.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "what": "Изучают системы диалога, которые распознают намерение собеседника, отслеживают ход беседы и формируют ответы с учётом контекста.",
+      "why": "Это полезно для понимания того, как проектируют разговорные сервисы и учитывают в них цели пользователя.",
+      "examples": [
+        {
+          "title": "Enhancing Dialogue State Tracking Models through LLM-backed User-Agents Simulation",
+          "url": "https://aclanthology.org/2024.acl-long.473/",
+          "venue": "ACL",
+          "year": 2024
+        },
+        {
+          "title": "Empathy in Diversity: Personalized Depression and Anxiety Therapy via Dialogue State Tracking and Patient-Aware Planning",
+          "url": "https://aclanthology.org/2026.acl-long.424/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "what": "Рассматривают применение машинного обучения для описания и проектирования молекул и белков, включая их строение и взаимодействия.",
+      "why": "Это помогает понять, как вычислительные методы используют при изучении биологических молекул и постановке задач их проектирования.",
+      "examples": [
+        {
+          "title": "Proteo-R1: Reasoning Foundation Models for De Novo Protein Design",
+          "url": "https://proceedings.mlr.press/v306/wu26bq.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Pallatom-Ligand: an All-Atom Diffusion Model for Designing Ligand-Binding Proteins",
+          "url": "https://openreview.net/forum?id=uMD75SDTTA",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "what": "Проверяют, как модели, сочетающие изображения и текст, понимают визуальную информацию, рассуждают о пространстве и справляются с изменениями данных.",
+      "why": "Это помогает оценивать пригодность таких систем для задач, где текст нужно соотносить с изображениями.",
+      "examples": [
+        {
+          "title": "HybridDriveVLA: Vision-Language-Action Model with Visual CoT reasoning and ToT Evaluation for Autonomous Driving",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Bassole_HybridDriveVLA_Vision-Language-Action_Model_with_Visual_CoT_reasoning_and_ToT_Evaluation_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Ascending the Infinite Ladder: Benchmarking Spatial Deformation Reasoning in Vision-Language Models",
+          "url": "https://aclanthology.org/2026.acl-long.1119/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "what": "Изучают способ представления трёхмерной сцены набором гауссовых элементов и то, как по изображениям с разных ракурсов строят её отображение.",
+      "why": "Это помогает разобраться в подходах к созданию и показу трёхмерных сцен по фотографиям.",
+      "examples": [
+        {
+          "title": "Plug-and-Play PDE Optimization for 3D Gaussian Splatting: Toward High-Quality Rendering and Reconstruction",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Mo_Plug-and-Play_PDE_Optimization_for_3D_Gaussian_Splatting_Toward_High-Quality_Rendering_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "EcoSplat: Efficiency-controllable Feed-forward 3D Gaussian Splatting from Multi-view Images",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Bui_EcoSplat_Efficiency-controllable_Feed-forward_3D_Gaussian_Splatting_from_Multi-view_Images_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "what": "Здесь изучают, как системы учатся выбирать действия по примерам и обратной связи, в том числе когда доступны только заранее собранные данные. Сравнивают способы обучения и оценки.",
+      "why": "Это помогает понимать, как проектируют системы для последовательного выбора действий и сравнивают их работу на общих тестах.",
+      "examples": [
+        {
+          "title": "Adaptive Scaling of Policy Constraints for Offline Reinforcement Learning",
+          "url": "https://openreview.net/forum?id=liOHottW7G",
+          "venue": "ICLR",
+          "year": 2026
+        },
+        {
+          "title": "Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning",
+          "url": "https://proceedings.mlr.press/v306/chen26fl.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "what": "Исследуют, как по изображениям определить положение человека, предметов и камеры в пространстве, а также описать движение. Учитывают, например, размытие и разные точки обзора.",
+      "why": "Такие методы нужны там, где важно оценить положение и движение по визуальным данным.",
+      "examples": [
+        {
+          "title": "From Sharp to Blur: Unsupervised Domain Adaptation for 2D Human Pose Estimation Under Extreme Motion Blur Using Event Cameras",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Kim_From_Sharp_to_Blur_Unsupervised_Domain_Adaptation_for_2D_Human_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Akada_Bring_Your_Rear_Cameras_for_Egocentric_3D_Human_Pose_Estimation_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "what": "Изучают, как обучать модели, если для многих примеров нет точных ответов или метки нет вовсе. Рассматривают частичные подсказки, сходство данных и распределённое обучение.",
+      "why": "Это важно, когда подготовить полные и точные примеры для обучения трудно.",
+      "examples": [
+        {
+          "title": "Weakly-Supervised Contrastive Learning for Imprecise Class Labels",
+          "url": "https://proceedings.mlr.press/v267/zhou25ab.html",
+          "venue": "ICML",
+          "year": 2025
+        },
+        {
+          "title": "(FL)$^2$: Overcoming Few Labels in Federated Semi-Supervised Learning",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/4d2aa4c034745f558bfea34643c8d6a6-Abstract-Conference.html",
+          "venue": "NeurIPS",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "what": "Работы посвящены автоматическому переводу между языками и способам учесть их различия. Отдельно рассматривают языки с малым объёмом данных и выбор примеров для обучения.",
+      "why": "Понимание этих подходов важно при создании переводческих систем для разных языков, особенно когда данных мало.",
+      "examples": [
+        {
+          "title": "Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation",
+          "url": "https://aclanthology.org/2025.acl-long.1052/",
+          "venue": "ACL",
+          "year": 2025
+        },
+        {
+          "title": "A Semantic Uncertainty Sampling Strategy for Back-Translation in Low-Resources Neural Machine Translation",
+          "url": "https://aclanthology.org/2025.acl-srw.35/",
+          "venue": "ACL",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "what": "Изучают модели, которые обрабатывают не только текст, но и изображения или другие виды данных. Исследуют совместное обучение, согласование ответов и оценку рассуждений.",
+      "why": "Это помогает разбираться в системах, которым нужно учитывать текст и визуальную информацию одновременно.",
+      "examples": [
+        {
+          "title": "Thinking Diffusion: Penalize and Guide Visual-Grounded Reasoning in Diffusion Multimodal Language Models",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Kim_Thinking_Diffusion_Penalize_and_Guide_Visual-Grounded_Reasoning_in_Diffusion_Multimodal_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Meerkat-VL: Implicit Risk Safety Alignment in Multimodal LLMs via Perceptual Reasoning and Self-Verification",
+          "url": "https://proceedings.mlr.press/v306/zhou26ae.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "what": "Рассматривают системы, которые сначала ищут сведения, а затем используют найденное при составлении ответа. Изучают обработку запросов и поиск по текстовым и визуальным данным.",
+      "why": "Это важно для задач, где при подготовке ответа нужно опираться на найденную информацию.",
+      "examples": [
+        {
+          "title": "From Retrieval to Translation: Translating Query into Graph-level Clues for Retrieval-Augmented Generation",
+          "url": "https://proceedings.mlr.press/v306/liu26fy.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Fix Before Search: Benchmarking Agentic Visual Query Pre-processing in Multimodal Retrieval-augmented Generation",
+          "url": "https://proceedings.mlr.press/v306/zeng26w.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "what": "В этой области разрабатывают тесты для программных помощников, которые выполняют задачи самостоятельно. Проверяют их действия в разных сценариях, включая планирование и совместную работу.",
+      "why": "Тесты помогают сравнивать таких помощников и понимать, какие задачи и условия проверялись.",
+      "examples": [
+        {
+          "title": "ComfyBench: Benchmarking LLM-based Agents in ComfyUI for Autonomously Designing Collaborative AI Systems",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xue_ComfyBench_Benchmarking_LLM-based_Agents_in_ComfyUI_for_Autonomously_Designing_Collaborative_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        },
+        {
+          "title": "DynaSchedBench: Calibrated Dynamic Scheduling Benchmarks and Observability Paradox in LLM-based Scheduling Agents",
+          "url": "https://proceedings.mlr.press/v306/cao26z.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "what": "Изучают, как передавать знания от крупной или более сложной модели компактной модели-ученику. Сравнивают способы такой передачи и обучения обеих моделей.",
+      "why": "Эта область важна при поиске способов обучать менее сложные модели, используя более сложные как ориентир.",
+      "examples": [
+        {
+          "title": "Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling",
+          "url": "https://openreview.net/forum?id=EgJhwYR2tB",
+          "venue": "ICLR",
+          "year": 2025
+        },
+        {
+          "title": "Toward Student-oriented Teacher Network Training for Knowledge Distillation",
+          "url": "https://openreview.net/forum?id=wsWGcw6qKD",
+          "venue": "ICLR",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "what": "Исследуют модели, которые создают данные через последовательное преобразование шума, и способы ускорить их обучение или получение результата. Рассматривают работу со скрытыми представлениями.",
+      "why": "Понимание этих методов помогает оценивать затраты времени и вычислений при создании изображений.",
+      "examples": [
+        {
+          "title": "Training-free Mixed-Resolution Latent Upsampling for Spatially Accelerated Diffusion Transformers",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Jeong_Training-free_Mixed-Resolution_Latent_Upsampling_for_Spatially_Accelerated_Diffusion_Transformers_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Semantics Lead the Way: Harmonizing Semantic and Texture Modeling with Asynchronous Latent Diffusion",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Pan_Semantics_Lead_the_Way_Harmonizing_Semantic_and_Texture_Modeling_with_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "what": "Изучают, как строить трёхмерное представление лица по данным и использовать его для анализа личности или выражения. Также рассматривают движение лица и защиту приватности.",
+      "why": "Это помогает понимать задачи распознавания лиц и выражений, а также связанные с ними вопросы приватности.",
+      "examples": [
+        {
+          "title": "FED-PsyAU: Privacy-Preserving Micro-Expression Recognition via Psychological AU Coordination and Dynamic Facial Motion Modeling",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Li_FED-PsyAU_Privacy-Preserving_Micro-Expression_Recognition_via_Psychological_AU_Coordination_and_Dynamic_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "Norface: Improving Facial Expression Analysis by Identity Normalization",
+          "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/7224_ECCV_2024_paper.php",
+          "venue": "ECCV",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "what": "Разрабатывают методы, которые находят в тексте названия людей, объектов или понятий и определяют связи между ними. Исследуют разметку, разные форматы данных и обучение со временем.",
+      "why": "Такой разбор помогает превращать тексты в структурированные сведения для поиска и анализа.",
+      "examples": [
+        {
+          "title": "PolyNERE: A Novel Ontology and Corpus for Named Entity Recognition and Relation Extraction in Polymer Science Domain",
+          "url": "https://aclanthology.org/2024.lrec-main.1126/",
+          "venue": "COLING",
+          "year": 2024
+        },
+        {
+          "title": "MPBoCo: Multimodal Prompt-based Boundary-enhanced Continual Framework for Joint Entity and Relation Extraction",
+          "url": "https://aclanthology.org/2026.acl-long.1220/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "what": "Сравнивают способы выяснить, связан ли результат с определённым воздействием, а не только совпадает с ним. Рассматривают контрфактические сценарии и скрытые факторы.",
+      "why": "Это важно, когда нужно оценить возможные последствия воздействия и учесть факторы, влияющие на вывод.",
+      "examples": [
+        {
+          "title": "Image Quality Assessment: Investigating Causal Perceptual Effects with Abductive Counterfactual Inference",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Shen_Image_Quality_Assessment_Investigating_Causal_Perceptual_Effects_with_Abductive_Counterfactual_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        },
+        {
+          "title": "Causal Effect Estimation with Mixed Latent Confounders and Post-treatment Variables",
+          "url": "https://openreview.net/forum?id=qe1CsfnN1W",
+          "venue": "ICLR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "what": "Изучают способы улучшать изображения с помехами, размытием или низкой детализацией. Сравнивают подходы к очистке, повышению разрешения и работе с разными искажениями.",
+      "why": "Эти методы важны, когда визуальные данные нужно подготовить для просмотра или дальнейшего анализа.",
+      "examples": [
+        {
+          "title": "ZFusion: Efficient Deep Compositional Zero-shot Learning for Blind Image Super-Resolution with Generative Diffusion Prior",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Esmaeilzehi_ZFusion_Efficient_Deep_Compositional_Zero-shot_Learning_for_Blind_Image_Super-Resolution_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "Not All Degradations Are Equal: A Targeted Feature Denoising Framework for Generalizable Image Super-Resolution",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_Not_All_Degradations_Are_Equal_A_Targeted_Feature_Denoising_Framework_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "what": "Исследуют, как находить предметы на изображении и определять их положение. Методы сравнивают на тестовых наборах и изучают распознавание категорий, не заданных заранее.",
+      "why": "Это помогает понимать, как системы анализируют изображения и как сопоставляют их возможности на тестах.",
+      "examples": [
+        {
+          "title": "Benchmarking Object Detectors with COCO: A New Path Forward",
+          "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/6053_ECCV_2024_paper.php",
+          "venue": "ECCV",
+          "year": 2024
+        },
+        {
+          "title": "Parameter-Efficient Semantic Augmentation for Enhancing Open-Vocabulary Object Detection",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Cao_Parameter-Efficient_Semantic_Augmentation_for_Enhancing_Open-Vocabulary_Object_Detection_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "what": "Изучают, как определять, какие части входных данных можно пропустить при обработке, чтобы сократить вычисления и при этом учитывать наиболее важную информацию.",
+      "why": "Это помогает разбирать компромисс между затратами вычислений и тем, сколько сведений модель принимает во внимание.",
+      "examples": [
+        {
+          "title": "Neural Attention Search Linear: Towards Adaptive Token-Level Hybrid Attention Models",
+          "url": "https://proceedings.mlr.press/v306/deng26v.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "AD-BTS: Adaptive Dual-Branch Token Sparsification via Spatial Information Density",
+          "url": "https://proceedings.mlr.press/v306/gao26r.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "what": "Сравнивают способы, которыми модель сопоставляет разные части последовательности, в том числе при длинных текстах и прогнозировании меняющихся во времени данных.",
+      "why": "Понимание этих способов важно при выборе методов обработки длинных последовательностей и оценке связанных с ними вычислительных затрат.",
+      "examples": [
+        {
+          "title": "Linear Transformers as VAR Models: Aligning Autoregressive Attention Mechanisms with Autoregressive Forecasting",
+          "url": "https://proceedings.mlr.press/v267/lu25r.html",
+          "venue": "ICML",
+          "year": 2025
+        },
+        {
+          "title": "Continuous-Time Attention: PDE-Guided Mechanisms for Long-Sequence Transformers",
+          "url": "https://aclanthology.org/2025.emnlp-main.1097/",
+          "venue": "EMNLP",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "what": "Исследуют, как модели обрабатывают изображения и учатся распознавать визуальные признаки, в том числе без готовых ответов или с предварительными искусственными примерами.",
+      "why": "Это важно для разработки и оценки систем, которые классифицируют изображения и учатся на разном объёме размеченных данных.",
+      "examples": [
+        {
+          "title": "A Theoretical Analysis of Self-Supervised Learning for Vision Transformers",
+          "url": "https://openreview.net/forum?id=Antib6Uovh",
+          "venue": "ICLR",
+          "year": 2025
+        },
+        {
+          "title": "Can You Learn to See Without Images? Procedural Warm-Up for Vision Transformers",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Shinnick_Can_You_Learn_to_See_Without_Images_Procedural_Warm-Up_for_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "what": "Изучают числовые представления слов и предложений: как в них отражаются значение и контекст и как проверять их при сравнении текстов или изменении формулировок.",
+      "why": "Такие представления применяют при поиске, классификации и сравнении текстов; оценка помогает понять, что именно они учитывают.",
+      "examples": [
+        {
+          "title": "CASE – Condition-Aware Sentence Embeddings for Conditional Semantic Textual Similarity Measurement",
+          "url": "https://aclanthology.org/2026.eacl-long.231/",
+          "venue": "EACL",
+          "year": 2026
+        },
+        {
+          "title": "Sentence Smith: Controllable Edits for Evaluating Text Embeddings",
+          "url": "https://aclanthology.org/2025.emnlp-main.1343/",
+          "venue": "EMNLP",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "what": "Рассматривают алгоритмы, которые принимают решения по мере поступления данных, и оценивают их потери относительно ориентира, в том числе в задачах с меняющимися условиями.",
+      "why": "Это важно, когда решения нужно принимать последовательно, а данные или последствия действий заранее известны не полностью.",
+      "examples": [
+        {
+          "title": "CLASP: Online learning algorithms for Convex Losses And Squared Penalties",
+          "url": "https://proceedings.mlr.press/v306/ferreira26a.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Data- and Variance-dependent Regret Bounds for Online Tabular MDPs",
+          "url": "https://proceedings.mlr.press/v306/li26ge.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "what": "Изучают способы составлять краткое изложение документа своими словами и выбирать важные фрагменты, а также проверяют качество таких текстов на разных языках и типах документов.",
+      "why": "Оценка помогает понять, насколько краткий текст отражает исходный документ и подходит для конкретного языка или вида материалов.",
+      "examples": [
+        {
+          "title": "Beyond N-Grams: Rethinking Evaluation Metrics and Strategies for Multilingual Abstractive Summarization",
+          "url": "https://aclanthology.org/2025.acl-long.932/",
+          "venue": "ACL",
+          "year": 2025
+        },
+        {
+          "title": "TermDiffuSum: A Term-guided Diffusion Model for Extractive Summarization of Legal Documents",
+          "url": "https://aclanthology.org/2025.coling-main.216/",
+          "venue": "COLING",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "what": "Исследуют оценку и настройку правил принятия решений по данным, собранным при другом правиле, в том числе когда часть вознаграждений неизвестна или условия меняются.",
+      "why": "Это важно при анализе решений по неполным данным и при сравнении вариантов, не проверяя каждый из них непосредственно.",
+      "examples": [
+        {
+          "title": "Off-Policy Evaluation for Missingness-Aware Policies in MDPs with Rewards Missing Not at Random",
+          "url": "https://proceedings.mlr.press/v306/wei26v.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Policy Optimization for Robust Average Reward MDPs",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/1f28e9341ab99d8e5a5734f0a76601c7-Abstract-Conference.html",
+          "venue": "NeurIPS",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "what": "Изучают приближённые способы описывать неопределённость в нейронных сетях и гауссовских процессах, включая построение распределений, полезных для прогнозов.",
+      "why": "Учёт неопределённости важен, чтобы интерпретировать прогнозы моделей и понимать, насколько они зависят от выбранного способа расчёта.",
+      "examples": [
+        {
+          "title": "A Fair Bayesian Inference through Matched Gibbs Posterior",
+          "url": "https://openreview.net/forum?id=sIjFXzEOOH",
+          "venue": "ICLR",
+          "year": 2026
+        },
+        {
+          "title": "Predictive variational inference: Learn the predictively optimal posterior distribution",
+          "url": "https://proceedings.mlr.press/v306/lai26c.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "what": "Рассматривают распознавание объектов на изображениях, когда размеченных примеров мало или нет, используя сведения о категориях и смысловом контексте визуальных областей.",
+      "why": "Это важно в задачах, где подготовка размеченных изображений ограничена или нужно оценить работу модели на незнакомых категориях.",
+      "examples": [
+        {
+          "title": "Incentivizing Generative Zero-Shot Learning via Outcome-Reward Reinforcement Learning with Visual Cues",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Hou_Incentivizing_Generative_Zero-Shot_Learning_via_Outcome-Reward_Reinforcement_Learning_with_Visual_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "SVIP: Semantically Contextualized Visual Patches for Zero-Shot Learning",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Chen_SVIP_Semantically_Contextualized_Visual_Patches_for_Zero-Shot_Learning_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "what": "Изучают нейросетевые способы приближённо решать дифференциальные уравнения, описывающие изменения и потоки, а также методы вычислений для таких задач.",
+      "why": "Такие уравнения используют для описания меняющихся систем; важно исследовать способы получать их приближённые решения.",
+      "examples": [
+        {
+          "title": "Riesz Neural Operator for Solving Partial Differential Equations",
+          "url": "https://openreview.net/forum?id=Vjw7q1quNt",
+          "venue": "ICLR",
+          "year": 2026
+        },
+        {
+          "title": "Flowers: A Warp Drive for Neural PDE Solvers",
+          "url": "https://proceedings.mlr.press/v306/muser26a.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "what": "Исследуют, как по снимку с одной камеры оценить расстояние до разных точек сцены, включая обработку участков изображения и обучение на одном или нескольких кадрах.",
+      "why": "Оценка расстояний помогает представить геометрию сцены, что может быть полезно при анализе изображений и планировании движения.",
+      "examples": [
+        {
+          "title": "One Look is Enough: Seamless Patchwise Refinement for Zero-Shot Monocular Depth Estimation on High-Resolution Images",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Kwon_One_Look_is_Enough_Seamless_Patchwise_Refinement_for_Zero-Shot_Monocular_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "Mono-ViFI: A Unified Learning Framework for Self-supervised Single- and Multi-frame Monocular Depth Estimation",
+          "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/6123_ECCV_2024_paper.php",
+          "venue": "ECCV",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "what": "Изучают, как роботы учатся перемещаться и выполнять действия с предметами, связывая навигацию с манипуляциями и приспосабливая действия на основе опыта.",
+      "why": "Это важно для понимания того, как планировать движения робота и его взаимодействие с предметами в разных условиях.",
+      "examples": [
+        {
+          "title": "N2M: Bridging Navigation and Manipulation by Learning Pose Preference from Rollout",
+          "url": "https://proceedings.mlr.press/v306/chai26a.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Escaping the Diversity Trap in Robotic Manipulation via Anchor-Centric Adaptation",
+          "url": "https://proceedings.mlr.press/v306/chen26cy.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "what": "Исследуют управление созданием изображений и видео, включая генерацию по тексту, контроль движения, ускорение пошаговой обработки и способы анализа атак на неё.",
+      "why": "Это важно для оценки способов задавать содержание визуальных материалов и изучать надёжность процесса их создания.",
+      "examples": [
+        {
+          "title": "Adversarial Attack and Defense for Denoising Diffusion Sampling",
+          "url": "https://proceedings.mlr.press/v306/lai26g.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Real-Time Motion-Controllable Autoregressive Video Diffusion",
+          "url": "https://openreview.net/forum?id=4Q55RwYte9",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "what": "Изучают способы учитывать конфиденциальность при машинном обучении, в том числе при создании документов, и разбирают, от каких предположений зависят гарантии приватности.",
+      "why": "Это помогает оценивать риски раскрытия данных и понимать, что именно гарантируют выбранные правила защиты.",
+      "examples": [
+        {
+          "title": "Leveraging Semantic Triples for Private Document Generation with Local Differential Privacy Guarantees",
+          "url": "https://aclanthology.org/2025.emnlp-main.455/",
+          "venue": "EMNLP",
+          "year": 2025
+        },
+        {
+          "title": "Beyond Membership: Limitations of Add/Remove Adjacency in Differential Privacy",
+          "url": "https://openreview.net/forum?id=C4jAhm8L1V",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "what": "Изучают, как языковые модели пишут программы по текстовым инструкциям и справляются с заданиями, где нужно вызывать разные функции, а также как проверять их ответы.",
+      "why": "Это помогает оценивать, в каких задачах программирования таким системам можно доверять, а где необходима проверка человеком.",
+      "examples": [
+        {
+          "title": "CodeIF: Benchmarking the Instruction-Following Capabilities of Large Language Models for Code Generation",
+          "url": "https://aclanthology.org/2025.acl-industry.89/",
+          "venue": "ACL",
+          "year": 2025
+        },
+        {
+          "title": "BigCodeBench: Benchmarking Code Generation with Diverse Function Calls and Complex Instructions",
+          "url": "https://openreview.net/forum?id=YrycTjllL0",
+          "venue": "ICLR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "what": "Исследуют, как по видеозаписи распознавать действия и определять их начало и конец, в том числе когда для обучения доступно мало примеров или нет точной разметки.",
+      "why": "Такие методы могут быть полезны для поиска нужных событий в длинных видеозаписях и анализа активности.",
+      "examples": [
+        {
+          "title": "TF-CADE: Foreground-Concentrated Text-Video Alignment for Zero-Shot Temporal Action Detection",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Lee_TF-CADE_Foreground-Concentrated_Text-Video_Alignment_for_Zero-Shot_Temporal_Action_Detection_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Temporal Alignment-Free Video Matching for Few-shot Action Recognition",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Lee_Temporal_Alignment-Free_Video_Matching_for_Few-shot_Action_Recognition_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "what": "Проверяют, как языковые модели понимают медицинские и биомедицинские тексты, включая клинические задания, и сравнивают системы, работающие с немецким языком.",
+      "why": "Это важно для оценки пригодности языковых моделей к работе с медицинской информацией и выявления ограничений их ответов.",
+      "examples": [
+        {
+          "title": "A Zero-shot and Few-shot Study of Instruction-Finetuned Large Language Models Applied to Clinical and Biomedical Tasks",
+          "url": "https://aclanthology.org/2024.lrec-main.185/",
+          "venue": "COLING",
+          "year": 2024
+        },
+        {
+          "title": "Comprehensive Study on German Language Models for Clinical and Biomedical Text Understanding",
+          "url": "https://aclanthology.org/2024.lrec-main.324/",
+          "venue": "COLING",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "what": "Изучают способы использовать модели для прогнозирования последовательностей измерений, например погодных данных, и учитывать связи между несколькими показателями.",
+      "why": "Прогнозы временных данных нужны при планировании и анализе процессов, меняющихся со временем.",
+      "examples": [
+        {
+          "title": "Channel Adapter for Time Series Foundation Models in Zero-Shot Multivariate Forecasting",
+          "url": "https://proceedings.mlr.press/v306/li26bu.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "CoRA: Boosting Time Series Foundation Models for Multivariate Forecasting through Correlation-aware Adapter",
+          "url": "https://openreview.net/forum?id=JRlNrcTllN",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "what": "Исследуют, как автоматически подбирать формулировки запросов к языковым и визуально-языковым моделям, в том числе с помощью обучения на обратной связи.",
+      "why": "Подбор запросов влияет на то, какие ответы дают модели, поэтому его важно изучать и оценивать.",
+      "examples": [
+        {
+          "title": "Divergence-enhanced Knowledge-guided Context Optimization for Visual-Language Prompt Tuning",
+          "url": "https://openreview.net/forum?id=6wOmHdwCC4",
+          "venue": "ICLR",
+          "year": 2025
+        },
+        {
+          "title": "StablePrompt : Automatic Prompt Tuning using Reinforcement Learning for Large Language Model",
+          "url": "https://aclanthology.org/2024.emnlp-main.551/",
+          "venue": "EMNLP",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "what": "Разрабатывают способы анализировать наборы точек, описывающие объекты в трёх измерениях, и сопоставлять такие данные с геометрией и изображениями.",
+      "why": "Анализ трёхмерных данных важен для задач, где нужно распознавать форму объектов или совмещать их измерения.",
+      "examples": [
+        {
+          "title": "C-GenReg: Training-Free 3D Point Cloud Registration by Multi-View-Consistent Geometry-to-Image Generation with Probabilistic Modalities Fusion",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Haitman_C-GenReg_Training-Free_3D_Point_Cloud_Registration_by_Multi-View-Consistent_Geometry-to-Image_Generation_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "DeepLA-Net: Very Deep Local Aggregation Networks for Point Cloud Analysis",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zeng_DeepLA-Net_Very_Deep_Local_Aggregation_Networks_for_Point_Cloud_Analysis_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "what": "Изучают способы представлять трёхмерную форму с помощью нейросетей и восстанавливать поверхность объекта по данным о его геометрии.",
+      "why": "Восстановление поверхностей может быть полезно при создании и анализе цифровых трёхмерных моделей.",
+      "examples": [
+        {
+          "title": "Distilling Unsigned Distance Function for Surface Reconstruction from 3D Gaussian Splatting",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Li_Distilling_Unsigned_Distance_Function_for_Surface_Reconstruction_from_3D_Gaussian_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Unsigned Orthogonal Distance Fields: An Accurate Neural Implicit Representation for Diverse 3D Shapes",
+          "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Lu_Unsigned_Orthogonal_Distance_Fields_An_Accurate_Neural_Implicit_Representation_for_CVPR_2024_paper.html",
+          "venue": "CVPR",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "what": "Исследуют, как нейросети находят грамматические связи и смысловую структуру предложений, используя как небольшое число примеров, так и данные без разметки.",
+      "why": "Понимание структуры фраз важно для программ, которые обрабатывают и анализируют человеческий язык.",
+      "examples": [
+        {
+          "title": "Improving Unsupervised Constituency Parsing via Maximizing Semantic Information",
+          "url": "https://openreview.net/forum?id=qyU5s4fzLg",
+          "venue": "ICLR",
+          "year": 2025
+        },
+        {
+          "title": "Few-Shot Semantic Dependency Parsing via Graph Contrastive Learning",
+          "url": "https://aclanthology.org/2024.lrec-main.636/",
+          "venue": "COLING",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "what": "Изучают, как модели выявляют необычные случаи и данные, не похожие на те, на которых их обучали, используя ранжирование классов и словари признаков.",
+      "why": "Распознавание непривычных данных важно, чтобы замечать ситуации, в которых обычные ответы модели могут быть ненадёжны.",
+      "examples": [
+        {
+          "title": "RankOOD - Class Ranking-based Out-of-Distribution Detection",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Denipitiyage_RankOOD_-_Class_Ranking-based_Out-of-Distribution_Detection_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "OODD: Test-time Out-of-Distribution Detection with Dynamic Dictionary",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Yang_OODD_Test-time_Out-of-Distribution_Detection_with_Dynamic_Dictionary_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "what": "Исследуют, как уменьшать точность чисел внутри нейросетей после обучения, включая очень компактное представление параметров и оценку возникающих ошибок.",
+      "why": "Сокращение объёма числовых данных связано с требованиями к памяти и вычислениям при работе моделей.",
+      "examples": [
+        {
+          "title": "LFQ: Logit-aware Final-block Quantization for Boosting the Generation Quality of Low-Bit Quantized LLMs",
+          "url": "https://proceedings.mlr.press/v306/lee26bi.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "LS-ViT: Least-Squares Hessian Based Block Reconstruction for Low-Bit Post-Training Quantization of Vision Transformers",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Hwang_LS-ViT_Least-Squares_Hessian_Based_Block_Reconstruction_for_Low-Bit_Post-Training_Quantization_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "what": "Изучают способы ускорять ответы больших моделей: предлагать вероятные продолжения заранее или прекращать вычисления на промежуточном слое.",
+      "why": "Время и объём вычислений важны при использовании крупных моделей, особенно для обработки запросов.",
+      "examples": [
+        {
+          "title": "Accelerating LLM Inference with Lossless Speculative Decoding Algorithms for Heterogeneous Vocabularies",
+          "url": "https://proceedings.mlr.press/v267/timor25a.html",
+          "venue": "ICML",
+          "year": 2025
+        },
+        {
+          "title": "LayerSkip: Enabling Early Exit Inference and Self-Speculative Decoding",
+          "url": "https://aclanthology.org/2024.acl-long.681/",
+          "venue": "ACL",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "what": "Исследуют, как переносить модели между наборами данных из разных источников, когда целевые данные не размечены или содержат ранее неизвестные категории.",
+      "why": "В реальных задачах данные могут отличаться от тех, на которых обучали модель, поэтому важно изучать её работу в новых условиях.",
+      "examples": [
+        {
+          "title": "Scaling Unsupervised Multi-Source Federated Domain Adaptation through Group-Wise Discrepancy Minimization",
+          "url": "https://proceedings.mlr.press/v306/reichart26a.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Distributionally Robust Classification for Multi-source Unsupervised Domain Adaptation",
+          "url": "https://openreview.net/forum?id=RyAyH8ufGu",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "what": "Изучают системы управления автомобилем, которые связывают обработку данных с действиями на дороге, а также роль причинных связей и отбора обучающих примеров.",
+      "why": "Анализ таких систем важен для оценки их поведения в дорожных ситуациях и способов их проверки.",
+      "examples": [
+        {
+          "title": "CausalVAD: De-confounding End-to-End Autonomous Driving via Causal Intervention",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Tang_CausalVAD_De-confounding_End-to-End_Autonomous_Driving_via_Causal_Intervention_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Scaling-Aware Data Selection for End-to-End Autonomous Driving Systems",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Dimlioglu_Scaling-Aware_Data_Selection_for_End-to-End_Autonomous_Driving_Systems_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "what": "Исследуют обучение моделей на устройствах или в организациях с разными данными, уделяя внимание настройке под участников и обмену информацией между ними.",
+      "why": "Такой подход важен, когда данные распределены между участниками и их совместное использование требует особого устройства обучения.",
+      "examples": [
+        {
+          "title": "Learning Personalized Causally Invariant Representations for Heterogeneous Federated Clients",
+          "url": "https://openreview.net/forum?id=8FHWkY0SwF",
+          "venue": "ICLR",
+          "year": 2024
+        },
+        {
+          "title": "MH-pFLID: Model Heterogeneous personalized Federated Learning via Injection and Distillation for Medical Data Analysis",
+          "url": "https://proceedings.mlr.press/v235/xie24h.html",
+          "venue": "ICML",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "what": "Изучают, как нейросеть может извлекать признаки из кадров, связывать начало и конец ролика и предсказывать, что происходит между ними.",
+      "why": "Это помогает разрабатывать системы, которым нужно распознавать и учитывать последовательность событий в видео.",
+      "examples": [
+        {
+          "title": "TimeBridge: Self-Supervised Video Representation Learning via Start-End Joint Embedding and In-Between Frame Prediction",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Wang_TimeBridge_Self-Supervised_Video_Representation_Learning_via_Start-End_Joint_Embedding_and_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "When the Future Becomes the Past: Taming Temporal Correspondence for Self-supervised Video Representation Learning",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Liu_When_the_Future_Becomes_the_Past_Taming_Temporal_Correspondence_for_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "what": "Исследуют, как отвечать на вопросы о содержании изображений и видео, находя нужные сведения и разбираясь с противоречиями в источниках.",
+      "why": "Такие подходы важны для инструментов, которые помогают искать информацию по визуальным материалам.",
+      "examples": [
+        {
+          "title": "EntRAG: Entity-Centric Retrieval-Augmented Generation for Knowledge-based Visual Question Answering",
+          "url": "https://proceedings.mlr.press/v306/hu26ay.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "CC-VQA: Conflict- and Correlation-Aware Method for Mitigating Knowledge Conflict in Knowledge-Based Visual Question Answering",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Hong_CC-VQA_Conflict-_and_Correlation-Aware_Method_for_Mitigating_Knowledge_Conflict_in_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "what": "Изучают правила выбора между несколькими действиями, когда результат заранее неизвестен, а ошибки выбора накапливаются со временем.",
+      "why": "Это применимо там, где решения принимают по мере поступления данных и важно учитывать цену неудачных выборов.",
+      "examples": [
+        {
+          "title": "On the Minimax Regret for Contextual Linear Bandits and Multi-Armed Bandits with Expert Advice",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/7169e48889a07662f4168e3911c4a69e-Abstract-Conference.html",
+          "venue": "NeurIPS",
+          "year": 2024
+        },
+        {
+          "title": "Almost Optimal Batch-Regret Tradeoff for Batch Linear Contextual Bandits",
+          "url": "https://openreview.net/forum?id=rakhNY32vw",
+          "venue": "ICLR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "what": "Исследуют, как нейросети уменьшают объём файлов с изображениями и как при этом соотносятся размер файла, качество картинки и время обработки.",
+      "why": "Сжатие важно для хранения и передачи изображений при ограниченных ресурсах.",
+      "examples": [
+        {
+          "title": "Efficient Learned Image Compression without Entropy Coding",
+          "url": "https://proceedings.mlr.press/v306/cao26e.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Balanced Rate-Distortion Optimization in Learned Image Compression",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Balanced_Rate-Distortion_Optimization_in_Learned_Image_Compression_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "what": "Разрабатывают способы определять, какую позицию занимает автор сообщения по политическому вопросу, в том числе без примеров для конкретной темы.",
+      "why": "Это может помогать анализировать большие массивы новостей и публикаций, не подменяя проверку их содержания.",
+      "examples": [
+        {
+          "title": "Stance Reasoner: Zero-Shot Stance Detection on Social Media with Explicit Reasoning",
+          "url": "https://aclanthology.org/2024.lrec-main.1326/",
+          "venue": "COLING",
+          "year": 2024
+        },
+        {
+          "title": "KPatch: Knowledge Patch to Pre-trained Language Model for Zero-Shot Stance Detection on Social Media",
+          "url": "https://aclanthology.org/2024.lrec-main.871/",
+          "venue": "COLING",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "what": "Изучают, как находить в тексте мнения о конкретных свойствах товара или услуги и определять, выражена ли по каждому из них похвала или критика.",
+      "why": "Такой разбор помогает систематизировать отзывы и понимать, какие стороны объекта обсуждают люди.",
+      "examples": [
+        {
+          "title": "Aspect-Based Sentiment Analysis with Syntax-Opinion-Sentiment Reasoning Chain",
+          "url": "https://aclanthology.org/2025.coling-main.210/",
+          "venue": "COLING",
+          "year": 2025
+        },
+        {
+          "title": "OATS: A Challenge Dataset for Opinion Aspect Target Sentiment Joint Detection for Aspect-Based Sentiment Analysis",
+          "url": "https://aclanthology.org/2024.lrec-main.1080/",
+          "venue": "COLING",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "what": "Исследуют, как создавать описания изображений и отдельных моментов видео, различать объекты и события и оценивать качество таких подписей.",
+      "why": "Описания помогают ориентироваться в визуальных материалах и находить в них нужные сцены.",
+      "examples": [
+        {
+          "title": "Stay in your Lane: Role Specific Queries with Overlap Suppression Loss for Dense Video Captioning",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Baek_Stay_in_your_Lane_Role_Specific_Queries_with_Overlap_Suppression_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "SAIL: Similarity-Aware Guidance and Inter-Caption Augmentation-based Learning for Weakly-Supervised Dense Video Captioning",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Kim_SAIL_Similarity-Aware_Guidance_and_Inter-Caption_Augmentation-based_Learning_for_Weakly-Supervised_Dense_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "what": "Изучают, как переносить художественную манеру с одной картинки на другую, сохраняя её смысловые объекты и учитывая особенности выбранного образца.",
+      "why": "Это важно для инструментов редактирования изображений и создания иллюстраций с заданным визуальным характером.",
+      "examples": [
+        {
+          "title": "StyleGallery: Training-free and Semantic-aware Personalized Style Transfer from Arbitrary Image References",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/He_StyleGallery_Training-free_and_Semantic-aware_Personalized_Style_Transfer_from_Arbitrary_Image_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "SaMam: Style-aware State Space Model for Arbitrary Image Style Transfer",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Liu_SaMam_Style-aware_State_Space_Model_for_Arbitrary_Image_Style_Transfer_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "what": "Исследуют, как обучать модель новым задачам так, чтобы она меньше теряла ранее усвоенное, а также как соотносятся сохранение знаний и их удаление.",
+      "why": "Это важно, когда модель обновляют для новых задач, но при этом нужно учитывать прежние знания.",
+      "examples": [
+        {
+          "title": "Mitigating Catastrophic Forgetting in Online Continual Learning by Modeling Previous Task Interrelations via Pareto Optimization",
+          "url": "https://proceedings.mlr.press/v235/wu24ab.html",
+          "venue": "ICML",
+          "year": 2024
+        },
+        {
+          "title": "The Forgetting-Retention Dilemma: Certified Unlearning Theory in Continual Learning",
+          "url": "https://proceedings.mlr.press/v306/hu26o.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "what": "Изучают способы автоматического создания текста и методы проверки его качества и неопределённости, включая оценку искусственно созданных данных.",
+      "why": "Надёжная оценка особенно важна при использовании текстовых систем в областях с серьёзными последствиями ошибок.",
+      "examples": [
+        {
+          "title": "Addressing Pitfalls in the Evaluation of Uncertainty Estimation Methods for Natural Language Generation",
+          "url": "https://openreview.net/forum?id=OxWnOV5q8w",
+          "venue": "ICLR",
+          "year": 2026
+        },
+        {
+          "title": "SynthTextEval: Synthetic Text Data Generation and Evaluation for High-Stakes Domains",
+          "url": "https://aclanthology.org/2025.emnlp-demos.35/",
+          "venue": "EMNLP",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "what": "Изучают способы донастраивать большие модели, меняя лишь компактные части их параметров, в том числе разреженные строки и столбцы матриц.",
+      "why": "Это помогает исследовать варианты адаптации моделей с меньшим объёмом изменений исходных параметров.",
+      "examples": [
+        {
+          "title": "ScaLoRA: Optimally Scaled Low-Rank Adaptation for Efficient High-Rank Fine-Tuning",
+          "url": "https://proceedings.mlr.press/v306/zhang26hi.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "RoseLoRA: Row and Column-wise Sparse Low-rank Adaptation of Pre-trained Language Model for Knowledge Editing and Fine-tuning",
+          "url": "https://aclanthology.org/2024.emnlp-main.57/",
+          "venue": "EMNLP",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "what": "Исследуют, как находить объект в кадрах и прослеживать его перемещения, а также как поведение таких систем зависит от изменения их внутренних состояний.",
+      "why": "Отслеживание нужно для анализа видеозаписей и наблюдения за движущимися объектами.",
+      "examples": [
+        {
+          "title": "RELO: Reinforcement Learning to Localize for Visual Object Tracking",
+          "url": "https://proceedings.mlr.press/v306/chen26ea.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Out of Sight, Out of Track: Adversarial Attacks on Propagation-based Multi-Object Trackers via Query State Manipulation",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Bouzidi_Out_of_Sight_Out_of_Track_Adversarial_Attacks_on_Propagation-based_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "what": "Изучают, насколько оценки языковых моделей совпадают с человеческими суждениями и как неопределённость и общие предубеждения влияют на эту проверку.",
+      "why": "Это важно, чтобы понимать ограничения автоматической оценки ответов и не принимать её за безошибочную.",
+      "examples": [
+        {
+          "title": "Beyond correlation: The impact of human uncertainty in measuring the effectiveness of automatic evaluation and LLM-as-a-judge",
+          "url": "https://openreview.net/forum?id=E8gYIrbP00",
+          "venue": "ICLR",
+          "year": 2025
+        },
+        {
+          "title": "Label Effects: Shared Heuristic Reliance in Trust Assessment by Humans and LLM-as-a-Judge",
+          "url": "https://aclanthology.org/2026.acl-long.1495/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "what": "Исследуют внутренние представления генеративных моделей: распределения в скрытом пространстве и способы учитывать симметрии при создании изображений.",
+      "why": "Понимание этих представлений помогает изучать, как устроено создание новых данных такими моделями.",
+      "examples": [
+        {
+          "title": "Quantum latent distributions in deep generative models",
+          "url": "https://proceedings.mlr.press/v306/bacarreza26a.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "EQ-VAE: Equivariance Regularized Latent Space for Improved Generative Image Modeling",
+          "url": "https://proceedings.mlr.press/v267/kouzelis25a.html",
+          "venue": "ICML",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "what": "Изучают методы выявления вымышленных ответов языковых и зрительно-языковых моделей, включая ошибки в распознавании объектов на изображениях. Также рассматривают способы их снижения.",
+      "why": "Это помогает понимать, где ответы ИИ могут расходиться с изображением или фактами и как исследователи пытаются обнаруживать такие ошибки.",
+      "examples": [
+        {
+          "title": "HaloProbe: Bayesian Detection and Mitigation of Object Hallucinations in Vision-Language Models",
+          "url": "https://proceedings.mlr.press/v306/zohrabi26a.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "DOUBT: Decoupled Object-level Understanding and Bridging via vMF-based Trustworthiness for Hallucination Detection in MLLMs",
+          "url": "https://proceedings.mlr.press/v306/chen26dl.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "what": "Исследуют, как автоматически находить в документах события, их участников и связи между событиями. Отдельное внимание уделяют извлечению отношений из длинных и биомедицинских текстов.",
+      "why": "Извлечение событий помогает структурировать документы и находить связи, которые трудно заметить при чтении больших массивов текста.",
+      "examples": [
+        {
+          "title": "Document-Level Event Extraction via Information Interaction Based on Event Relation and Argument Correlation",
+          "url": "https://aclanthology.org/2024.lrec-main.459/",
+          "venue": "COLING",
+          "year": 2024
+        },
+        {
+          "title": "Enhanced Reasoning for Biomedical Document-Level Relation Extraction via a Novel Cascade Language Model Framework",
+          "url": "https://aclanthology.org/2026.acl-long.1517/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "what": "Рассматривают модели, которые создают изображения по текстовым запросам и редактируют уже имеющиеся изображения. Исследуется, как объединить эти задачи в одной системе.",
+      "why": "Такие методы важны для понимания того, как текстовые инструкции могут управлять созданием и изменением визуального содержимого.",
+      "examples": [
+        {
+          "title": "UniVG: A Generalist Diffusion Model for Unified Image Generation and Editing",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Fu_UniVG_A_Generalist_Diffusion_Model_for_Unified_Image_Generation_and_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "DreamOmni: Unified Image Generation and Editing",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xia_DreamOmni_Unified_Image_Generation_and_Editing_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "what": "Изучают распознавание эмоций по тексту и сочетанию разных типов данных, например изображения, речи и текста. Рассматривают классификацию эмоций и работу при недостающих данных.",
+      "why": "Эта тема показывает, как ИИ интерпретирует эмоциональные сигналы и почему оценка эмоций может быть неопределённой.",
+      "examples": [
+        {
+          "title": "World-Model Inspired Emotion-aware Token Refinement for Training-Free Multimodal Emotion Recognition",
+          "url": "https://proceedings.mlr.press/v306/liu26o.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Beyond Missing Modalities: Hypergraph Conditioned Diffusion for Uncertainty-Aware Multimodal Emotion Recognition",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Qiu_Beyond_Missing_Modalities_Hypergraph_Conditioned_Diffusion_for_Uncertainty-Aware_Multimodal_Emotion_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "what": "Исследуют обнаружение трёхмерных объектов по облакам точек LiDAR для задач автономного вождения. Работы рассматривают представление пространственных данных и адаптацию моделей.",
+      "why": "Понимание этой задачи помогает оценивать, как системы машинного зрения распознают объекты и расстояния вокруг автомобиля.",
+      "examples": [
+        {
+          "title": "UniMamba: Unified Spatial-Channel Representation Learning with Group-Efficient Mamba for LiDAR-based 3D Object Detection",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Jin_UniMamba_Unified_Spatial-Channel_Representation_Learning_with_Group-Efficient_Mamba_for_LiDAR-based_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        },
+        {
+          "title": "MOS: Model Synergy for Test-Time Adaptation on LiDAR-Based 3D Object Detection",
+          "url": "https://openreview.net/forum?id=Y6aHdDNQYD",
+          "venue": "ICLR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "what": "Изучают обучение языковых агентов с подкреплением для согласования поведения и планирования действий. В качестве задач рассматривают стратегическую игру и взаимодействие с физической средой.",
+      "why": "Так можно разобраться, как агенты учатся выбирать действия по обратной связи и использовать язык при планировании.",
+      "examples": [
+        {
+          "title": "Language Agents with Reinforcement Learning for Strategic Play in the Werewolf Game",
+          "url": "https://proceedings.mlr.press/v235/xu24ad.html",
+          "venue": "ICML",
+          "year": 2024
+        },
+        {
+          "title": "Teaching Embodied Reinforcement Learning Agents: Informativeness and Diversity of Language Use",
+          "url": "https://aclanthology.org/2024.emnlp-main.237/",
+          "venue": "EMNLP",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "what": "Исследуют заполнение пропусков в графах знаний: модели предсказывают недостающие связи между сущностями. Рассматриваются временные графы, встраивания и калибровка вероятностей.",
+      "why": "Это важно для понимания того, как ИИ предлагает недостающие связи и насколько надёжными могут быть такие предсказания.",
+      "examples": [
+        {
+          "title": "KGE Calibrator: An Efficient Probability Calibration Method of Knowledge Graph Embedding Models for Trustworthy Link Prediction",
+          "url": "https://aclanthology.org/2025.emnlp-main.1522/",
+          "venue": "EMNLP",
+          "year": 2025
+        },
+        {
+          "title": "RENN: A Rule Embedding Enhanced Neural Network Framework for Temporal Knowledge Graph Completion",
+          "url": "https://aclanthology.org/2024.lrec-main.1215/",
+          "venue": "COLING",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "what": "Изучают поиск соответствий между текстом, изображениями и видео. В частности, рассматриваются поиск по составному описанию изображения и отбор видео по тонким смысловым связям.",
+      "why": "Такие методы помогают искать визуальные материалы по словам и понимать, какие именно детали запроса учитывает система.",
+      "examples": [
+        {
+          "title": "WISER: Wider Search, Deeper Thinking, and Adaptive Fusion for Training-Free Zero-Shot Composed Image Retrieval",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Wang_WISER_Wider_Search_Deeper_Thinking_and_Adaptive_Fusion_for_Training-Free_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "EagleNet: Energy-Aware Fine-Grained Relationship Learning Network for Text-Video Retrieval",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_EagleNet_Energy-Aware_Fine-Grained_Relationship_Learning_Network_for_Text-Video_Retrieval_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "what": "Исследуют восстановление трёхмерных цифровых людей с телом, волосами и одеждой по изображениям. Рассматриваются реконструкция причёски и представление одежды отдельными слоями.",
+      "why": "Тема объясняет, как цифровые аватары получают объёмный вид и как в модели описываются волосы и одежда.",
+      "examples": [
+        {
+          "title": "Im2Haircut: Single-view Strand-based Hair Reconstruction for Human Avatars",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Sklyarova_Im2Haircut_Single-view_Strand-based_Hair_Reconstruction_for_Human_Avatars_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "SimAvatar: Simulation-Ready Avatars with Layered Hair and Clothing",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Li_SimAvatar_Simulation-Ready_Avatars_with_Layered_Hair_and_Clothing_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "what": "Изучают объяснения решений моделей и проверяют, насколько они соответствуют реальному поведению системы. Также рассматривают понятность объяснений для людей и способы их оценки.",
+      "why": "Правдоподобный текст ещё не доказывает, что модель действительно опиралась на названные причины; эту разницу важно уметь проверять.",
+      "examples": [
+        {
+          "title": "Faithfulness Beyond Plausibility: Auditing Human Explanations in Educational Assessment",
+          "url": "https://aclanthology.org/2026.acl-srw.55/",
+          "venue": "ACL",
+          "year": 2026
+        },
+        {
+          "title": "Directly Optimizing Natural Language Explanations for Behavioral Faithfulness: Simulatability and Recoverability",
+          "url": "https://proceedings.mlr.press/v306/malladi26a.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "what": "Исследуют обучение импульсных нейросетей, учитывая временную структуру сигналов и активность нейронов. Работы рассматривают связь временного разрешения и информации с устойчивостью моделей.",
+      "why": "Это помогает понять особенности нейросетей, которые обрабатывают сигналы во времени отдельными импульсами, а не непрерывными значениями.",
+      "examples": [
+        {
+          "title": "On the Role of Temporal Granularity in the Robustness of Spiking Neural Networks",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Xu_On_the_Role_of_Temporal_Granularity_in_the_Robustness_of_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Robust Spiking Neural Networks by Temporal Mutual Information",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Xu_Robust_Spiking_Neural_Networks_by_Temporal_Mutual_Information_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "what": "Изучают, как оценивать неопределённость прогнозов глубоких нейросетей и калибровать её. Рассматриваются неопределённость предобученных моделей и разногласия между моделями.",
+      "why": "Оценка неопределённости помогает отличать уверенный прогноз от ситуации, когда модель может ошибаться или сталкивается с новыми данными.",
+      "examples": [
+        {
+          "title": "Epistemic Uncertainty Quantification For Pre-Trained Neural Networks",
+          "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Wang_Epistemic_Uncertainty_Quantification_For_Pre-Trained_Neural_Networks_CVPR_2024_paper.html",
+          "venue": "CVPR",
+          "year": 2024
+        },
+        {
+          "title": "Complementing Self-Consistency with Cross-Model Disagreement for Uncertainty Quantification",
+          "url": "https://openreview.net/forum?id=lOoRJo8xWy",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "what": "Исследуют оценку трёхмерного положения кисти и предмета по изображениям, включая их взаимный контакт. Также рассматривают геометрические ограничения и оценку позы по разреженным данным датчиков.",
+      "why": "Точная оценка позы нужна, чтобы анализировать жесты и взаимодействие руки с предметами в трёхмерном пространстве.",
+      "examples": [
+        {
+          "title": "HOISDF: Constraining 3D Hand-Object Pose Estimation with Global Signed Distance Fields",
+          "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Qi_HOISDF_Constraining_3D_Hand-Object_Pose_Estimation_with_Global_Signed_Distance_CVPR_2024_paper.html",
+          "venue": "CVPR",
+          "year": 2024
+        },
+        {
+          "title": "MGDHand: Multi-Granularity Prior-to-Inertial Distillation Framework for Sequential 3D Hand Pose Estimation from Sparse IMUs",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Wang_MGDHand_Multi-Granularity_Prior-to-Inertial_Distillation_Framework_for_Sequential_3D_Hand_Pose_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "what": "Изучают алгоритмы кластеризации, рассчитанные на большие наборы данных. Среди задач — группировка с ограничениями справедливости и приближённые варианты k-means, устойчивые к выбросам.",
+      "why": "Эта тема показывает, как группировать данные при ограничениях на время вычислений, выбросы и распределение объектов по кластерам.",
+      "examples": [
+        {
+          "title": "Capacitated Fair-Range Clustering: Hardness and Approximation Algorithms",
+          "url": "https://proceedings.mlr.press/v306/gadekar26a.html",
+          "venue": "ICML",
+          "year": 2026
+        },
+        {
+          "title": "Near-Linear Time Approximation Algorithms for k-means with Outliers",
+          "url": "https://proceedings.mlr.press/v235/huang24e.html",
+          "venue": "ICML",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "what": "Изучают, как повысить эффективность классификации ImageNet и соотношение точности и затрат вычислений. Среди тем — сшивание ResNet и анализ того, на каких слоях сеть принимает решение.",
+      "why": "Это помогает понять, от чего зависят точность и вычислительная цена распознавания изображений.",
+      "examples": [
+        {
+          "title": "KLAS: Using Similarity to Stitch Neural Networks for Improved Accuracy-Efficiency Tradeoffs",
+          "url": "https://openreview.net/forum?id=iTaQmRWa7Y",
+          "venue": "ICLR",
+          "year": 2026
+        },
+        {
+          "title": "When Do Models Actually Decide? Mapping the Layer-Wise Decision Timeline in Pretrained Neural Networks",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Lee_When_Do_Models_Actually_Decide_Mapping_the_Layer-Wise_Decision_Timeline_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "what": "Исследуют поиск изображений одного человека с разных камер и в разных модальностях, например видимой и инфракрасной. Рассматривают согласование признаков, видео и сохранение приватности.",
+      "why": "Тема показывает, как ИИ сопоставляет визуально разные записи и какие вопросы приватности при этом возникают.",
+      "examples": [
+        {
+          "title": "Towards Cross-Modal Preservation, Consistency and Alignment for Privacy-Preserving Visible-Infrared Person Re-Identification",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Xie_Towards_Cross-Modal_Preservation_Consistency_and_Alignment_for_Privacy-Preserving_Visible-Infrared_Person_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Hyperbolic Hierarchical Alignment for Video-Based Visible-Infrared Person Re-Identification",
+          "url": "https://proceedings.mlr.press/v306/li26by.html",
+          "venue": "ICML",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "what": "Изучают обучение генеративно-состязательных сетей, где генератор создаёт данные, а дискриминатор их оценивает. В фокусе — отбор примеров и квантование стиля при ограниченных данных.",
+      "why": "Это даёт представление о том, как устроено обучение генеративных моделей и почему ему нужны данные и настройка.",
+      "examples": [
+        {
+          "title": "Improving the Training of Data-Efficient GANs via Quality Aware Dynamic Discriminator Rejection Sampling",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Improving_the_Training_of_Data-Efficient_GANs_via_Quality_Aware_Dynamic_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        },
+        {
+          "title": "Style Quantization for Data-Efficient GAN Training",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Wang_Style_Quantization_for_Data-Efficient_GAN_Training_CVPR_2025_paper.html",
+          "venue": "CVPR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "what": "Рассматривают оценку классификаторов на наборах CIFAR-10, CIFAR-100, ImageNet и MNIST. Темы включают длинный хвост классов, conformal prediction и более реалистичные тесты обобщения.",
+      "why": "Бенчмарки помогают разобраться, на каких данных и по каким условиям сравнивают модели.",
+      "examples": [
+        {
+          "title": "Conformal Prediction for Long-Tailed Classification",
+          "url": "https://openreview.net/forum?id=8L83ZbFDjk",
+          "venue": "ICLR",
+          "year": 2026
+        },
+        {
+          "title": "CIFAR-10-Warehouse: Broad and More Realistic Testbeds in Model Generalization Analysis",
+          "url": "https://openreview.net/forum?id=pw2ssoOTpo",
+          "venue": "ICLR",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "what": "Исследуют автоматическую проверку утверждений: поиск подтверждающих материалов и сопоставление их с заявлением. Отдельные направления — юридические случаи и мультимодальные графы доказательств.",
+      "why": "Это важно для понимания того, как системы обосновывают проверку фактов и находят относящиеся к ней источники.",
+      "examples": [
+        {
+          "title": "CaseFacts: A Benchmark for Legal Fact-Checking and Precedent Retrieval",
+          "url": "https://aclanthology.org/2026.acl-long.785/",
+          "venue": "ACL",
+          "year": 2026
+        },
+        {
+          "title": "MEVER: Multi-Modal and Explainable Claim Verification with Graph-based Evidence Retrieval",
+          "url": "https://aclanthology.org/2026.eacl-long.242/",
+          "venue": "EACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "what": "Изучают водяные знаки в сгенерированных изображениях и их устойчивость к обработке и атакам. Среди тем — геометрические искажения и перефразирование текста, связанного с изображением.",
+      "why": "Тема помогает понять, какие изменения могут мешать обнаружению меток происхождения контента.",
+      "examples": [
+        {
+          "title": "SynTag: Enhancing the Geometric Robustness of Inversion-based Generative Image Watermarking",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Fang_SynTag_Enhancing_the_Geometric_Robustness_of_Inversion-based_Generative_Image_Watermarking_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "Revisiting the Robustness of Watermarking to Paraphrasing Attacks",
+          "url": "https://aclanthology.org/2024.emnlp-main.1005/",
+          "venue": "EMNLP",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "what": "Рассматривают оптимизацию предпочтений при настройке языковых моделей под человеческие оценки. Изучают прямую оптимизацию предпочтений и выбор данных для выравнивания модели.",
+      "why": "Это объясняет, как человеческие предпочтения включают в обучение языковых моделей и какие данные для этого используют.",
+      "examples": [
+        {
+          "title": "Is On-Policy Data always the Best Choice for Direct Preference Optimization-Based LM Alignment?",
+          "url": "https://openreview.net/forum?id=tz9mJmgrdM",
+          "venue": "ICLR",
+          "year": 2026
+        },
+        {
+          "title": "Towards Robust Alignment of Language Models: Distributionally Robustifying Direct Preference Optimization",
+          "url": "https://openreview.net/forum?id=CbfsKHiWEn",
+          "venue": "ICLR",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "what": "Изучают рекомендации товаров и контента на основе поведения пользователей и свойств объектов. Темы охватывают последовательности действий, рекомендации новых объектов и баланс справедливости.",
+      "why": "Рекомендательные системы влияют на то, что видит пользователь; их устройство связано с персонализацией и справедливостью.",
+      "examples": [
+        {
+          "title": "Fine Tuning Out-of-Vocabulary Item Recommendation with User Sequence Imagination",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/10d52f5d2ef0f69ac10da7c962fb6db9-Abstract-Conference.html",
+          "venue": "NeurIPS",
+          "year": 2024
+        },
+        {
+          "title": "Interpolating Item and User Fairness in Multi-Sided Recommendations",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/59d4e18a60490b9ed9913f3be2b14839-Abstract-Conference.html",
+          "venue": "NeurIPS",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "what": "Рассматривают оценку оптического потока — движения между кадрами, а также потока сцены в трёх измерениях. Изучают длинные перемещения, RGB-кадры, события и отслеживание точек.",
+      "why": "Эти методы позволяют анализировать движение в видео и сравнивать алгоритмы на специальных наборах данных.",
+      "examples": [
+        {
+          "title": "Learning Large Motion Estimation from Intermediate Representations with a High-Resolution Optical Flow Dataset Featuring Long-Range Dynamic Motion",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Cho_Learning_Large_Motion_Estimation_from_Intermediate_Representations_with_a_High-Resolution_ICCV_2025_paper.html",
+          "venue": "ICCV",
+          "year": 2025
+        },
+        {
+          "title": "\"BlinkVision: A Benchmark for Optical Flow, Scene Flow and Point Tracking Estimation using RGB Frames and Events\"",
+          "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/8381_ECCV_2024_paper.php",
+          "venue": "ECCV",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "what": "Изучают предварительно обученные модели для записей мозговой активности, включая ЭЭГ. Рассматривают масштабирование таких моделей, токенизацию сигналов и архитектуры для разных временных масштабов.",
+      "why": "Тема показывает, как методы ИИ применяют к нейронным сигналам и чем такие данные отличаются от обычного текста или изображений.",
+      "examples": [
+        {
+          "title": "BrainLM: A foundation model for brain activity recordings",
+          "url": "https://openreview.net/forum?id=RwI7ZEfR27",
+          "venue": "ICLR",
+          "year": 2024
+        },
+        {
+          "title": "CodeBrain: Bridging Decoupled Tokenizer and Multi-Scale Architecture for EEG Foundation Model",
+          "url": "https://openreview.net/forum?id=msJgEkjwh5",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "what": "Исследуют прогнозирование будущих траекторий участников движения для автономного вождения. Среди подходов — учёт близкого и дальнего будущего и использование прогнозируемой занятости пространства.",
+      "why": "Понимание этой задачи помогает оценить, как автомобильная система учитывает возможное движение вокруг машины.",
+      "examples": [
+        {
+          "title": "Perceiving the Near, Reasoning the Distant: Coherent Long-Horizon Trajectory Prediction for Autonomous Driving",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Hu_Perceiving_the_Near_Reasoning_the_Distant_Coherent_Long-Horizon_Trajectory_Prediction_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "OccDriver: Future Occupancy Guided Dual-branch Trajectory Planner in Autonomous Driving",
+          "url": "https://openreview.net/forum?id=abJCjkIwi5",
+          "venue": "ICLR",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "what": "Рассматривают качество разметки и согласие между людьми, которые размечают данные. Темы включают поиск консенсуса в сложных задачах и выбор примеров с учётом затрат усилий.",
+      "why": "Качество обучающих данных зависит от разметки, поэтому важно понимать, как оценивают её надёжность.",
+      "examples": [
+        {
+          "title": "KaLOS finds Consensus: A Meta-Algorithm for Evaluating Inter-Annotator Agreement in Complex Vision Tasks",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Tschirschwitz_KaLOS_finds_Consensus_A_Meta-Algorithm_for_Evaluating_Inter-Annotator_Agreement_in_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "CAL-Log: Cost-Aware Active Learning with Logarithmic Cognitive Effort Modeling and Online Adaptation to Human Annotation Behavior",
+          "url": "https://aclanthology.org/2026.acl-srw.48/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "what": "Изучают генерацию историй, связность повествования и способы оценивать её в текстах и визуальных сюжетах. Отдельная тема — преобразование повествования для структурированных рассуждений языковой модели.",
+      "why": "Это помогает разобраться, по каким признакам оценивают связность созданного ИИ рассказа.",
+      "examples": [
+        {
+          "title": "Evaluating Visual Narrative Coherence in Story Visualization via Diversified Storylines",
+          "url": "https://aclanthology.org/2026.acl-long.1578/",
+          "venue": "ACL",
+          "year": 2026
+        },
+        {
+          "title": "StoryCoder: Narrative Reformulation for Structured Reasoning in LLM Code Generation",
+          "url": "https://aclanthology.org/2026.acl-long.872/",
+          "venue": "ACL",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "what": "Исследуют способы дообучать крупные модели, меняя меньше параметров, чем при полном fine-tuning. Среди направлений — разреженный спектр и работа в подпространстве.",
+      "why": "Тема объясняет подходы к настройке больших моделей и то, как они ограничивают объём изменяемых параметров.",
+      "examples": [
+        {
+          "title": "S2FT: Parameter-Efficient Fine-Tuning in Sparse Spectrum Domain",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_S2FT_Parameter-Efficient_Fine-Tuning_in_Sparse_Spectrum_Domain_CVPR_2026_paper.html",
+          "venue": "CVPR",
+          "year": 2026
+        },
+        {
+          "title": "Parameter-Efficient Fine-Tuning of Large Language Models via Deconvolution in Subspace",
+          "url": "https://aclanthology.org/2025.coling-main.265/",
+          "venue": "COLING",
+          "year": 2025
+        }
+      ]
+    }
+  ]
+}

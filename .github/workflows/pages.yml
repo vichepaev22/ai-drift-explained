@@ -29,6 +29,7 @@ jobs:
         run: |
           node --check app.js
           node --check visual.js
+          node --check insights.js
           node --check metrics.mjs
           node --test tests/*.test.mjs
       - name: Modern Web Guidance compatibility audit (informational)
@@ -76,13 +77,24 @@ jobs:
       - name: Prepare static website
         run: |
           mkdir -p _site/assets
-          cp index.html style.css app.js visual.js metrics.mjs _site/
+          cp index.html style.css app.js visual.js insights.js insights-data.json metrics.mjs _site/
           cp assets/favicon.svg assets/share.png _site/assets/
           mkdir -p _site/vendor
           curl --fail --location --retry 3 --silent --show-error https://cdnjs.cloudflare.com/ajax/libs/three.js/0.180.0/three.module.min.js -o _site/vendor/three.module.min.js
           curl --fail --location --retry 3 --silent --show-error https://cdnjs.cloudflare.com/ajax/libs/three.js/0.180.0/three.core.min.js -o _site/vendor/three.core.min.js
           touch _site/.nojekyll
           test -s _site/metrics.mjs
+          test -s _site/insights.js
+          test -s _site/insights-data.json
+          python3 - <<'PYINSIGHTS'
+          import json
+          from pathlib import Path
+          manifest=json.loads(Path('_site/data/manifest.json').read_text())
+          content=json.loads(Path('_site/insights-data.json').read_text())
+          assert manifest['source_fingerprint']==content['provenance']['sourceFingerprint'], 'Insight data version mismatch'
+          assert len(content['topics'])==manifest['counts']['topics']==98, 'Topic count mismatch'
+          print('Validated 98 explanatory entries against source fingerprint',flush=True)
+          PYINSIGHTS
           test -s _site/data/map.json
           test -s _site/data/members.json
           test -s _site/data/papers.json

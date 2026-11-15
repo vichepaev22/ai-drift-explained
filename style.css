@@ -269,3 +269,84 @@ body.light dialog.claim-drawer { background: #f6faff; }
 /* Native modal: prevent page scrolling underneath and keep focus unobscured. */
 html:has(dialog.claim-drawer:modal){overflow:hidden}
 dialog.claim-drawer::backdrop{overflow:hidden;overscroll-behavior:contain}
+
+/* Evidence-based editorial guide · Drift Inspector source data (2026). */
+.insights-teaser{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:27px 30px;margin:-33px 0 62px;border:1px solid #365665;border-radius:15px;background:linear-gradient(105deg,#12313d,#182039 85%)}
+.insights-teaser h2{font-size:clamp(22px,2.2vw,29px);letter-spacing:-.04em;margin:8px 0}
+.insights-teaser p{color:#a8c6d4;font-size:14px;line-height:1.7;max-width:650px;margin:0}
+.insights-teaser .primary-btn{flex-shrink:0}
+.insights-intro{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:19px}
+.insights-intro>div{padding:22px;background:var(--panel);border:1px solid var(--border);border-radius:13px}
+.insights-intro>div>span,.insight-card-top,.explain-eyebrow{font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.11em;color:var(--aqua)}
+.insights-intro h2{font-size:17px;line-height:1.35;letter-spacing:-.025em;margin:10px 0 8px}
+.insights-intro p{font-size:13px;color:var(--muted);line-height:1.65;margin:0}
+.insights-guardrail{border-left:3px solid var(--aqua);background:var(--panel2);border-radius:0 10px 10px 0;padding:17px 22px;margin:0 0 48px}
+.insights-guardrail strong{font-size:14px;display:block;margin-bottom:6px}
+.insights-guardrail p{font-size:13px;color:var(--muted);line-height:1.75;margin:0;max-width:1000px}
+.insights-section-head{margin-bottom:18px}
+.insights-filters{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 19px}
+.insights-filters .chip[aria-pressed="true"]{background:#193c42;color:var(--aqua);border-color:#4e9b95}
+.insights-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:16px;margin-bottom:42px}
+.insight-card{display:flex;flex-direction:column;gap:0;min-width:0;padding:26px;border-radius:15px;border:1px solid var(--border);background:linear-gradient(153deg,var(--panel),var(--panel2));}
+.insight-card-top{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;font-size:10px;line-height:1.4;color:#8fb5c7}
+.insight-card-top span:first-child{color:var(--aqua)}
+.insight-card h2{font-size:clamp(19px,1.7vw,24px);line-height:1.32;letter-spacing:-.04em;margin:17px 0 12px}
+.insight-card .insight-summary{font-size:14px;line-height:1.75;color:var(--text);margin:0 0 16px}
+.insight-meaning{margin-bottom:19px;background:#16313b8a;border-left:2px solid #4caea5;border-radius:0 8px 8px 0;padding:11px 13px}
+.insight-meaning b,.insight-evidence>b{font-size:12px;color:var(--aqua);display:block;margin-bottom:6px}
+.insight-meaning p{color:#acc2d2;font-size:13px;line-height:1.65;margin:0}
+.insight-evidence{margin-top:auto;padding:15px 0 7px;border-top:1px solid var(--border)}
+.insight-evidence>b{color:#a9bdd3;margin-bottom:10px}
+.insight-topic-list{display:flex;flex-direction:column;gap:6px}
+.insight-topic{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;border:1px solid #345067;border-radius:8px;background:#14283b;color:#deebf5;text-align:left;padding:10px 11px;font-size:12px;line-height:1.45}
+.insight-topic span{min-width:0;overflow-wrap:anywhere}
+.insight-topic strong{font:700 12px 'Space Grotesk',sans-serif;white-space:nowrap}
+.insight-topic .up{color:var(--aqua)}
+.insight-topic .down{color:var(--orange)}
+.insight-topic:hover,.insight-topic:focus-visible{border-color:var(--aqua);background:#1c3c47}
+.sources-disclosure{font-size:13px;border-top:1px solid var(--border);padding-top:12px;margin-top:12px}
+.sources-disclosure summary{cursor:pointer;color:var(--aqua);font-weight:700;line-height:1.55;list-style-position:inside;padding:3px 0}
+.sources-disclosure[open] summary{margin-bottom:10px}
+.source-papers{padding:0;margin:5px 0;list-style:none;display:grid;gap:10px}
+.source-papers li{border-left:2px solid #4a8999;padding-left:12px}
+.source-papers a{color:#a1f1ea;font-size:13px;line-height:1.6;text-decoration:underline;text-decoration-color:#58a5a18a;text-underline-offset:3px;overflow-wrap:anywhere}
+.source-papers a:hover{color:#fff}
+.source-papers span{display:block;font-size:11px;color:var(--muted);margin-top:3px}
+.citation-note{color:var(--muted);font-size:11px;line-height:1.6;margin:12px 0 0}
+.author-finding{background:linear-gradient(118deg,#10313a,#182944);border-radius:14px;border:1px solid #32646a;padding:28px 30px;margin-bottom:17px}
+.author-finding h2{font-size:clamp(21px,2vw,28px);letter-spacing:-.04em;margin:13px 0 10px}
+.author-finding p{font-size:14px;line-height:1.75;color:#cee2ee;margin:0 0 12px}
+.author-finding .author-details{color:#9cbacb}
+.author-finding a{display:inline-flex;margin-top:6px;color:#9af3dc;font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.insights-method-footer{padding:25px 27px;border:1px solid var(--border);background:var(--panel);border-radius:13px;margin-bottom:20px}
+.insights-method-footer h3{font-size:17px;line-height:1.4;margin:0 0 9px}
+.insights-method-footer p{font-size:13px;color:var(--muted);line-height:1.85;margin:0}
+.insights-method-footer .detail-actions{margin-top:16px}
+.insights-method-footer a.mini-btn{display:inline-block}
+.topic-explainer{border:1px solid #305d64;border-radius:12px;padding:20px 22px;margin:18px 0;background:linear-gradient(135deg,#132d39,#142137)}
+.topic-explainer h3{font-size:16px!important;line-height:1.4;margin:12px 0 5px}
+.topic-explainer p{font-size:13px;line-height:1.75;color:#c1d8e4;margin:0 0 8px}
+.topic-explainer .source-papers li a{color:#a9f8e5}
+.topic-explainer .citation-note{font-size:11px;color:#91acbb}
+.interpretation-note,.map-guide-hint{border:1px solid #305669;background:#12283a;border-radius:10px;color:#b5d0df;padding:14px 18px;font-size:13px;line-height:1.7;margin:0 0 17px}
+.interpretation-note strong,.map-guide-hint strong{color:#b6f5e6}
+.map-guide-hint{border:0;border-top:1px solid var(--border);border-radius:0;margin:0}
+.inline-go{border:0;background:transparent;color:var(--aqua);font:inherit;font-weight:800;cursor:pointer;padding:0 2px;text-decoration:underline;text-underline-offset:3px}
+.inline-go:hover{color:#ddfff4}
+/* Light palette inherits site tokens; override dark informational surfaces. */
+.light .insights-teaser,.light .author-finding,.light .topic-explainer{background:linear-gradient(120deg,#e2f5f2,#e9f1fb);border-color:#aeced5}
+.light .insights-teaser p,.light .insight-meaning p,.light .topic-explainer p,.light .author-finding p{color:#3f6075}
+.light .insights-guardrail,.light .insights-method-footer,.light .insights-intro>div{background:#fff}
+.light .insight-card{background:linear-gradient(145deg,#fff,#edf5fa)}
+.light .insight-meaning{background:#e4f3f1}
+.light .insight-topic,.light .interpretation-note,.light .map-guide-hint{background:#e4f0f5;color:#25495c;border-color:#b8d1dc}
+.light .insight-topic:hover{background:#d3ebeb}
+.light .insight-evidence>b,.light .source-papers a,.light .topic-explainer .source-papers a{color:#196b74}
+.light .source-papers a:hover{color:#003e4d}
+.light .author-finding .author-details,.light .insights-method-footer p{color:#526d81}
+.light .author-finding a,.light .interpretation-note strong,.light .map-guide-hint strong{color:#186c69}
+@media(max-width:1050px){.insights-grid{grid-template-columns:1fr}.insights-teaser{align-items:flex-start;flex-direction:column;margin-top:-28px}}
+@media(max-width:760px){.insights-intro{grid-template-columns:1fr}.insights-intro>div{padding:18px}.insights-teaser{padding:21px 20px;margin:0 0 40px}.insights-teaser .primary-btn{max-width:100%;white-space:normal}.insights-guardrail{margin-bottom:33px}.insight-card{padding:20px}.insight-card h2{font-size:21px}.insights-grid{gap:12px}.insight-card .insight-summary{font-size:14px}.insights-filters .chip{font-size:12px;padding:8px 10px}.author-finding,.insights-method-footer{padding:21px}.topic-explainer{padding:16px}.insight-card-top{font-size:10px}}
+
+/* Only defer cards well below the initial visible area, keeping the first findings immediately paintable. */
+.insight-card:nth-child(n+5){content-visibility:auto;contain-intrinsic-size:auto 490px}

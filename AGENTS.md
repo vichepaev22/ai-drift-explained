@@ -22,3 +22,10 @@ Browser support: current Chrome, Firefox, Safari and their modern mobile variant
 - Suspend WebGL animation off-screen or while the document is hidden; honor `prefers-reduced-motion`.
 - Keep a 2D fallback when WebGL is unavailable and do not load all claim text shards until requested.
 - Do not persist or send user behavior to analytics services. Disable optional Modern Web Guidance CLI telemetry via `DISABLE_TELEMETRY=1`.
+
+## Editorial science insights
+- Make quantitative claims from the shipped `data/topics.json`, not hard-coded prose.
+- Keep the separate 4,488-paper EMNLP paper case study distinct from the 117,888-paper all-conferences corpus.
+- Every topic explanation is an editorial aid based on original topic titles and paper references; never describe it as a verified paper conclusion.
+- The `insights-data.json` source fingerprint must match upstream `manifest.json`; new source versions require editorial revalidation.
+- Never invent DOI, article links, accuracy improvements, or market predictions.

@@ -30,6 +30,20 @@ try {
   await page.goto(base,{waitUntil:'domcontentloaded',timeout:20000});
   await page.waitForFunction(()=>document.querySelector('#dataset-status')?.textContent.includes('Научная база доступна'),null,{timeout:30000});
   console.log('PASS: scientific metadata loaded');
+  await page.locator('[data-view="insights"]').click();
+  assert.equal(await page.locator('#view-insights').isVisible(),true,'Explanatory guide must open');
+  assert.equal(await page.locator('#insights-grid .insight-card').count(),13,'All source-backed editorial findings are visible');
+  await page.locator('[data-insight-filter="decline"]').click();
+  assert.equal(await page.locator('#insights-grid .insight-card').count(),2,'Declining trends filter should show two findings');
+  await page.locator('[data-insight-filter="all"]').click();
+  assert.equal(await page.locator('#insights-grid .insight-card').count(),13,'Clear filter should show all findings');
+  const sourceLinks=await page.locator('#insights-grid .source-papers a').count();
+  assert.ok(sourceLinks>=10,'Scientific evidence links should be available');
+  await page.locator('#insights-grid .insight-card').first().locator('[data-open-topic]').first().click();
+  assert.equal(await page.locator('#view-topics').isVisible(),true);
+  assert.ok(await page.locator('#topic-detail .topic-explainer').count()>0,'Topic detail should include understandable explanation');
+  assert.ok(await page.locator('#topic-detail .source-papers a').count()>=2,'Topic should link to original research');
+  console.log('PASS: 13 findings, filters, sources and direct transition to understandable topic');
   await page.locator('[data-view="topics"]').click();
   assert.equal(await page.locator('#view-topics').isVisible(),true,'Topics must become visible');
   assert.match(await page.locator('#breadcrumb-name').innerText(),/ТЕМЫ/);
@@ -40,6 +54,7 @@ try {
   assert.ok(topicsFont>=13.5,'Topic names should be readable (>=13.5px), got '+topicsFont);
   console.log('PASS: navigation, search and readable topic names');
   await page.locator('[data-view="trends"]').click();
+  assert.match(await page.locator('#trend-takeaway').innerText(),/Как читать этот рейтинг/);
   assert.equal(await page.locator('#view-trends').isVisible(),true);
   await page.locator('#clear-trajectories').click();
   assert.match(await page.locator('#trend-chart').innerText(),/Выберите/,'Clear should empty graph');
@@ -51,6 +66,7 @@ try {
   await page.locator('[data-view="compare"]').click();
   await page.waitForFunction(()=>document.querySelector('#compare-summary')?.textContent.includes('статей'),null,{timeout:60000});
   assert.ok(await page.locator('#compare-chart .compare-row').count()>0,'Compare must show rows');
+  assert.match(await page.locator('#compare-interpretation').innerText(),/Как понимать сравнение/);
   const compareFont=await page.locator('#compare-chart .compare-row .name').first().evaluate(node=>parseFloat(getComputedStyle(node).fontSize));
   const metricFont=await page.locator('#view-compare .chip').first().evaluate(node=>parseFloat(getComputedStyle(node).fontSize));
   assert.ok(compareFont>=13&&metricFont>=12.5,'Comparison typography too small: '+compareFont+'/'+metricFont);

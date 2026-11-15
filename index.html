@@ -14,13 +14,14 @@
   <div class="nav-caption">ИССЛЕДОВАТЬ</div>
   <nav class="nav">
     <button class="nav-link active" data-view="overview"><span class="ni">◈</span> Обзор <span class="nav-index">01</span></button>
-    <button class="nav-link" data-view="map"><span class="ni">◎</span> Карта исследований <span class="nav-index">02</span></button>
-    <button class="nav-link" data-view="topics"><span class="ni">▦</span> Темы <span class="nav-index">03</span></button>
-    <button class="nav-link" data-view="trends"><span class="ni">⌁</span> Тренды <span class="nav-index">04</span></button>
-    <button class="nav-link" data-view="compare"><span class="ni">⇄</span> Сравнение <span class="nav-index">05</span></button>
+    <button class="nav-link" data-view="insights"><span class="ni">✧</span> Выводы и объяснения <span class="nav-index">02</span></button>
+    <button class="nav-link" data-view="map"><span class="ni">◎</span> Карта исследований <span class="nav-index">03</span></button>
+    <button class="nav-link" data-view="topics"><span class="ni">▦</span> Темы <span class="nav-index">04</span></button>
+    <button class="nav-link" data-view="trends"><span class="ni">⌁</span> Тренды <span class="nav-index">05</span></button>
+    <button class="nav-link" data-view="compare"><span class="ni">⇄</span> Сравнение <span class="nav-index">06</span></button>
   </nav>
   <div class="nav-caption second">СПРАВКА</div><nav class="nav">
-    <button class="nav-link" data-view="methods"><span class="ni">◇</span> Как это устроено <span class="nav-index">06</span></button>
+    <button class="nav-link" data-view="methods"><span class="ni">◇</span> Как это устроено <span class="nav-index">07</span></button>
   </nav>
   <div class="sidebar-bottom">
     <div class="status"><span class="pulse"></span><span id="dataset-status">Загрузка научной базы…</span></div>
@@ -42,13 +43,35 @@
     <div class="stats-grid"><div class="stat-card"><div>НАУЧНЫЕ ПУБЛИКАЦИИ</div><strong id="stat-papers">117 888</strong><small>ведущие конференции мира</small><span class="stat-glyph">01</span></div><div class="stat-card"><div>ИЗВЛЕЧЁННЫЕ УТВЕРЖДЕНИЯ</div><strong id="stat-claims">570 179</strong><small>каждый тезис — отдельная точка</small><span class="stat-glyph">02</span></div><div class="stat-card"><div>НАУЧНЫЕ НАПРАВЛЕНИЯ</div><strong id="stat-topics">98</strong><small>смысловые тематические кластеры</small><span class="stat-glyph">03</span></div><div class="stat-card"><div>ГЛУБИНА АНАЛИЗА</div><strong>9 лет</strong><small>динамика изменений 2018–2026</small><span class="stat-glyph">04</span></div></div>
     <div class="section-head"><div><div class="eyebrow muted">СИГНАЛЫ ИССЛЕДОВАНИЙ</div><h2>Что меняется быстрее всего</h2></div><button class="text-btn" data-goto="trends">Весь рейтинг →</button></div>
     <div id="signals" class="signals-grid"><div class="loading-card">Анализируем опубликованные данные…</div></div>
+    <div class="insights-teaser"><div><div class="eyebrow muted">НЕ ТОЛЬКО ГРАФИКИ</div><h2>Но что всё это означает?</h2><p>В карте видны научные направления, а в новом разделе мы объясняем, какие идеи за ними стоят, почему их исследуют и где посмотреть реальные статьи.</p></div><button class="primary-btn" data-goto="insights">Читать выводы простым языком ↗</button></div>
     <div class="section-head"><div><div class="eyebrow muted">ИНТЕРАКТИВНАЯ АНАЛИТИКА</div><h2>Три способа увидеть будущее</h2></div></div>
     <div class="feature-grid"><button class="feature-card" data-goto="map"><span class="feature-num">01 / КАРТА</span><div class="feature-icon">✺</div><h3>570 179 точек на одной карте</h3><p>Приближайте, меняйте годы, выбирайте тему и находите конкретные научные публикации.</p><b>ОТКРЫТЬ КАРТУ ↗</b></button><button class="feature-card" data-goto="trends"><span class="feature-num">02 / ДИНАМИКА</span><div class="feature-icon">↗</div><h3>Рост и спад технологий</h3><p>Динамические графики доли публикаций по годам — без маркетинговых прогнозов.</p><b>СМОТРЕТЬ ТРЕНДЫ ↗</b></button><button class="feature-card" data-goto="compare"><span class="feature-num">03 / СРАВНЕНИЕ</span><div class="feature-icon">⇆</div><h3>Сравните конференции</h3><p>NeurIPS против CVPR, первые годы против последних: сравнение по реальным научным тезисам.</p><b>СРАВНИТЬ ↗</b></button></div>
+  </section>
+  <section id="view-insights" class="view">
+    <div class="page-head"><div class="eyebrow muted">ПОНЯТНЫЙ ПУТЕВОДИТЕЛЬ ПО НАУКЕ</div>
+      <h1>Что меняется в исследованиях ИИ<span class="heading-dot">?</span></h1>
+      <p>Если карта показывает точки, то здесь — смысл. Мы перевели научные темы на обычный язык: что изучают исследователи, что меняется в публикациях и где увидеть первоисточники.</p>
+    </div>
+    <div class="insights-intro" aria-label="Как пользоваться выводами">
+      <div><span>01 / ПОНИМАЕМ</span><h2>О чём говорится</h2><p>Без сложных терминов и без необходимости читать сотни статей.</p></div>
+      <div><span>02 / ПРОВЕРЯЕМ</span><h2>Что показывают цифры</h2><p>Изменение доли публикаций в научном корпусе за 2018–2026 годы.</p></div>
+      <div><span>03 / ОТКРЫВАЕМ</span><h2>Откуда взят вывод</h2><p>Ссылки на оригинальные публикации и связанные темы с графиками.</p></div>
+    </div>
+    <div class="insights-guardrail"><strong>Важно понимать</strong><p>Эта карта показывает <b>интерес и результаты исследователей</b>, а не продажи, прибыльность или гарантированное качество ИИ-продуктов. Данные за 2026 год могут быть неполными. Автоматическое выделение научных тезисов может ошибаться.</p></div>
+    <div class="section-head insights-section-head"><div><div class="eyebrow muted">НАУЧНЫЕ ТЕНДЕНЦИИ / ПО ДАННЫМ КАРТЫ</div><h2>13 наблюдений, которые стоит знать</h2></div><span id="insight-count" class="data-pill">Загружаем выводы…</span></div>
+    <div class="insights-filters" role="group" aria-label="Отбор научных выводов"><button type="button" class="chip" data-insight-filter="all" aria-pressed="true">Все направления</button><button type="button" class="chip" data-insight-filter="growth" aria-pressed="false">Доля растёт</button><button type="button" class="chip" data-insight-filter="decline" aria-pressed="false">Доля снижается</button></div>
+    <div id="insights-grid" class="insights-grid" aria-live="polite"><div class="loading-card">Подготавливаем выводы и ссылки на исследования…</div></div>
+    <div class="author-finding" id="author-finding"></div>
+    <div class="insights-method-footer"><h3>Почему этим цифрам можно доверять — и почему им нельзя доверять безоговорочно?</h3>
+      <p>В исходном исследовании языковая модель извлекала из аннотаций небольшие утверждения о вкладе статьи, после чего алгоритм группировал близкие идеи. Результаты объединения тем и извлечения тезисов проверялись авторами на отдельных выборках. Но не все 570 тысяч утверждений были проверены человеком. Поэтому мы показываем источники и отделяем <strong>измеренный тренд</strong> от <strong>редакционного объяснения</strong>.</p>
+      <div class="detail-actions"><button class="mini-btn" data-goto="methods">Посмотреть методику ↗</button><a class="mini-btn" href="https://aclanthology.org/2026.emnlp-demos.13/" target="_blank" rel="noopener noreferrer">Научная статья авторов ↗</a><a class="mini-btn" href="https://drift.autumnfleet.com/i/all-conf/" target="_blank" rel="noopener noreferrer">Оригинальный Drift Inspector ↗</a></div>
+    </div>
   </section>
   <section id="view-map" class="view"><div class="page-head row-spread"><div><div class="eyebrow muted">ДАННЫЕ / ПРОСТРАНСТВО ИДЕЙ</div><h1>Карта исследований<span class="heading-dot">.</span></h1><p>Каждая точка — научное утверждение. Близкие точки посвящены похожим идеям. Фильтры показывают только выбранные точки.</p></div><span class="data-pill" id="map-count">570 179 утверждений</span></div>
     <div class="map-shell"><div class="map-toolbar"><label>ГОД <select id="map-year"><option value="all">Все годы</option></select></label><label>ЦВЕТ <select id="map-color"><option value="topic">По темам</option><option value="drift">Рост / спад</option><option value="year">По годам</option></select></label><label>КАЧЕСТВО <select id="map-quality"><option value="medium">Стандарт · быстро</option><option value="full">Все точки</option><option value="low">Экономный</option></select></label><button class="mini-btn" id="map-zoom-in" aria-label="Увеличить карту">＋</button><button class="mini-btn" id="map-zoom-out" aria-label="Уменьшить карту">－</button><button class="mini-btn" id="map-reset" title="Центрировать и вписать карту">Вписать карту ⤢</button><div class="map-help">Перетаскивайте карту · колесо — масштаб · нажмите на точку для первоисточника</div></div>
       <div class="map-area"><div id="map-canvas"><div id="map-loading" class="map-placeholder"><div class="loading-ring"></div><b>Готовим трёхмерный атлас научных идей</b><small>Подгружаем 570 тысяч точек и информацию об исследованиях…</small></div></div>
       <aside class="map-aside"><div class="aside-title">ТЕМАТИЧЕСКИЕ ОБЛАСТИ <span>98</span></div><input id="map-topic-search" aria-label="Поиск научных направлений на карте" placeholder="Поиск по направлениям…" autocomplete="off"/><button class="all-topics selected" id="map-all-topics">✺ Все направления</button><div id="map-topic-list" class="map-topic-list"></div><div class="aside-bottom"><span class="legend-dot positive"></span> Рост <span class="legend-dot negative"></span> Спад <span class="legend-dot neutral"></span> Без группы</div></aside></div>
+      <div class="map-guide-hint"><strong>Зачем эта карта?</strong> Близкие точки объединяют похожие научные идеи. Чтобы понять их содержание, выберите тему справа или откройте <button data-goto="insights" class="inline-go">объяснения трендов ↗</button>.</div>
       <div class="map-footer"><span id="map-selection">Показаны точки исходной научной карты</span><span>Three.js · исходная проекция исследователей · UMAP</span></div>
     </div>
   </section>
@@ -57,6 +80,7 @@
     <div class="topic-layout"><div class="topic-list" id="topics-list"></div><div class="topic-detail" id="topic-detail"><div class="empty-state">Выберите научное направление слева, чтобы увидеть аналитику</div></div></div>
   </section>
   <section id="view-trends" class="view"><div class="page-head"><div class="eyebrow muted">РЕЙТИНГ ДИНАМИКИ</div><h1>Технологии в движении<span class="heading-dot">.</span></h1><p>Как изменилась доля научных статей с конкретными научными результатами. Единица измерения — процентные пункты. 2026 год может быть неполным.</p></div>
+    <div id="trend-takeaway" class="interpretation-note">Загружаем краткий вывод по научным направлениям…</div>
     <div class="trends-controls"><span>ПОКАЗАТЬ</span><button class="chip active" data-topn="10">Топ-10</button><button class="chip" data-topn="15">Топ-15</button><button class="chip" data-topn="25">Топ-25</button><span class="ctl-note">Нажмите на строку, чтобы добавить тему к графику</span></div>
     <div class="trends-layout"><div class="panel"><div class="panel-heading"><h3>▲ Самые быстрорастущие</h3><small>2018 → 2026</small></div><div id="gainers"></div></div><div class="panel"><div class="panel-heading"><h3>▼ Самые снижающиеся</h3><small>2018 → 2026</small></div><div id="losers"></div></div></div>
     <div class="panel trend-chart-panel"><div class="panel-heading"><h3>Траектории по годам</h3><button id="clear-trajectories" class="mini-btn">Очистить выбор ↺</button></div><div class="chart-caption">Доля публикаций с результатами по теме, % — выбранные направления показаны разными цветами</div><div id="trend-chart" class="trend-chart"></div><div id="trend-legend" class="chart-legend"></div></div>
@@ -64,6 +88,7 @@
   <section id="view-compare" class="view"><div class="page-head"><div class="eyebrow muted">СРАВНИТЕЛЬНАЯ АНАЛИТИКА</div><h1>Сопоставьте два мира<span class="heading-dot">.</span></h1><p>Сравнение по 98 научным направлениям: конференция, период, научные публикации и утверждения. Каждая статья считается только один раз на тему.</p></div>
     <div class="compare-controls"><div class="cohort"><div class="cohort-label"><span class="cohort-mark a"></span> ВЫБОРКА A</div><label>Конференция <select id="cmp-a-venue"><option value="all">Все конференции</option></select></label><div class="range-row"><label>С <select id="cmp-a-start"></select></label><label>ПО <select id="cmp-a-end"></select></label></div></div><div class="vs-mark">VS</div><div class="cohort"><div class="cohort-label"><span class="cohort-mark b"></span> ВЫБОРКА B</div><label>Конференция <select id="cmp-b-venue"><option value="all">Все конференции</option></select></label><div class="range-row"><label>С <select id="cmp-b-start"></select></label><label>ПО <select id="cmp-b-end"></select></label></div></div></div>
     <div class="compare-metrics"><span>МЕТРИКА</span><button class="chip active" data-metric="papers">Доля статей</button><button class="chip" data-metric="claims">Доля утверждений</button><span id="compare-summary">Выберите параметры для сравнения</span></div>
+    <div id="compare-interpretation" class="interpretation-note" aria-live="polite">Сравниваем группы публикаций, а не качество отдельных конференций.</div>
     <div class="panel compare-panel"><div class="panel-heading"><h3>Где различия наиболее заметны</h3><small>Разность долей: A − B, процентные пункты</small></div><div id="compare-chart"><div class="empty-state">Загрузка данных для сравнения…</div></div></div>
   </section>
   <section id="view-methods" class="view"><div class="page-head"><div class="eyebrow muted">ИСТОЧНИКИ / МЕТОДИКА</div><h1>Что означают эти цифры<span class="heading-dot">?</span></h1><p>Карта показывает исследовательскую активность, а не коммерческие продажи и не гарантии будущего успеха технологий.</p></div>
@@ -75,4 +100,4 @@
 </div></div>
 <dialog id="claim-drawer" class="claim-drawer" aria-label="Научная публикация" closedby="any"><div class="drawer-inner"><button id="drawer-close" type="button" class="drawer-close" aria-label="Закрыть">×</button><div id="drawer-content" aria-live="polite"></div></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script type="module" src="./app.js?v=20261115-01"></script></body></html>
+<script type="module" src="./app.js?v=20261115-02"></script></body></html>
