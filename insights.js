@@ -1,3 +1,4 @@
+import {insightArt} from './insight-art.js';
 /** Editorial layer for Drift Inspector data.
  * Source metrics are supplied by topics.json. Explanations and example papers
  * are editorial aids; never confuse them with a paper's own validated claim.
@@ -34,13 +35,17 @@ export function topicExplanation(data, id){
     </details>
   </div>`;
 }
+const INSIGHTS_PAGE_SIZE = 6;
+let visibleLimit = INSIGHTS_PAGE_SIZE;
+
 export function renderInsights(data,topics,topicName,openTopic){
   const list=document.getElementById('insights-grid');
   if(!list||!data)return;
   const filters=document.querySelectorAll('[data-insight-filter]');
   const current=document.querySelector('[data-insight-filter][aria-pressed="true"]')?.dataset.insightFilter||'all';
   const stories=data.stories.filter(s=>current==='all'||s.kind===current);
-  list.innerHTML=stories.map((s,index)=>{
+  const visible=stories.slice(0,visibleLimit);
+  list.innerHTML=visible.map((s,index)=>{
     const topicStats=s.topicIds.map(id=>{
       const topic=topics[id];if(!topic)return '';
       const negative=topic.deltaPp<0;
@@ -50,21 +55,30 @@ export function renderInsights(data,topics,topicName,openTopic){
     }).join('');
     const lead=data.topics[s.topicIds[0]];
     return `<article class="insight-card" aria-labelledby="insight-title-${html(s.id)}">
-      <div class="insight-card-top"><span>НАБЛЮДЕНИЕ ${String(index+1).padStart(2,'0')}</span><span>${s.kind==='decline'?'ДОЛЯ СНИЖАЕТСЯ':'ДОЛЯ РАСТЁТ'}</span></div>
-      <h2 id="insight-title-${html(s.id)}">${html(s.title)}</h2>
-      <p class="insight-summary">${html(s.summary)}</p>
-      <div class="insight-meaning"><b>Что это означает</b><p>${html(s.meaning)}</p></div>
-      <div class="insight-evidence"><b>Цифры из научной базы, 2018 → 2026</b><div class="insight-topic-list">${topicStats}</div></div>
-      <details class="sources-disclosure"><summary>Посмотреть примеры публикаций</summary>
-        <ul class="source-papers">${sourcePapers(lead,2)}</ul>
-        <p class="citation-note">Рост или снижение — это изменение доли статей по теме, а не качества технологии. Примеры работ показывают содержание направления и не служат единоличным доказательством общей тенденции.</p>
-      </details>
+      ${insightArt(s.id,s.title)}
+      <div class="insight-card-body">
+        <div class="insight-card-top"><span>НАБЛЮДЕНИЕ ${String(index+1).padStart(2,'0')}</span><span>${s.kind==='decline'?'ДОЛЯ СНИЖАЕТСЯ':'ДОЛЯ РАСТЁТ'}</span></div>
+        <h2 id="insight-title-${html(s.id)}">${html(s.title)}</h2>
+        <p class="insight-summary">${html(s.summary)}</p>
+        <div class="insight-meaning"><b>Почему это интересно</b><p>${html(s.meaning)}</p></div>
+        <div class="insight-evidence"><b>Научные данные: изменение доли публикаций, 2018 → 2026</b><div class="insight-topic-list">${topicStats}</div></div>
+        <details class="sources-disclosure"><summary>Посмотреть примеры публикаций</summary>
+          <ul class="source-papers">${sourcePapers(lead,2)}</ul>
+          <p class="citation-note">Изменение доли публикаций — не оценка качества технологии. Примеры показывают содержание темы, но не доказывают общую тенденцию каждый по отдельности.</p>
+        </details>
+      </div>
     </article>`;
   }).join('')||'<div class="empty-state">Пока нет выводов для выбранной категории.</div>';
   list.querySelectorAll('[data-open-topic]').forEach(button=>button.addEventListener('click',()=>openTopic(Number(button.dataset.openTopic))));
   filters.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.insightFilter===current)));
   const count=document.getElementById('insight-count');
-  if(count)count.textContent=`${stories.length} наблюдений`;
+  if(count)count.textContent=`${stories.length} наблюдений · показано ${visible.length}`;
+  const more=document.getElementById('insights-more');
+  if(more){
+    more.hidden=visible.length>=stories.length;
+    more.setAttribute('aria-label',`Показать ещё наблюдения, осталось ${stories.length-visible.length}`);
+    more.textContent=`Показать ещё ${Math.min(INSIGHTS_PAGE_SIZE,stories.length-visible.length)} →`;
+  }
   const authors=data.authorFinding;
   const authorNode=document.getElementById('author-finding');
   if(authorNode&&authors){
@@ -78,9 +92,14 @@ export function renderInsights(data,topics,topicName,openTopic){
 export function wireInsights(data,topics,topicName,openTopic){
   document.querySelectorAll('[data-insight-filter]').forEach(button=>{
     button.addEventListener('click',()=>{
+      visibleLimit=INSIGHTS_PAGE_SIZE;
       document.querySelectorAll('[data-insight-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
       renderInsights(data,topics,topicName,openTopic);
     });
+  });
+  document.getElementById('insights-more')?.addEventListener('click',()=>{
+    visibleLimit += INSIGHTS_PAGE_SIZE;
+    renderInsights(data,topics,topicName,openTopic);
   });
   renderInsights(data,topics,topicName,openTopic);
 }
