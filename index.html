@@ -3,7 +3,7 @@
 <title>Атлас ИИ — интерактивная карта научных трендов 2018–2026</title>
 <meta name="description" content="Куда движется искусственный интеллект? Интерактивная карта 570 179 научных утверждений: темы, рост и спад, сравнение конференций, реальные статьи.">
 <meta property="og:type" content="website"><meta property="og:title" content="Атлас ИИ — карта научных трендов"><meta property="og:description" content="118 тысяч исследований, 570 тысяч утверждений и 98 направлений. На русском языке.">
-<meta property="og:image" content="https://vichepaev22.github.io/ai-drift-explained/assets/share.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="./assets/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="./style.css?v=20261116-02">
+<meta property="og:image" content="https://vichepaev22.github.io/ai-drift-explained/assets/share.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="./assets/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="./style.css?v=20261116-03">
 <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script></head>
 <body>
 <a class="skip-link" href="#main-content">Перейти к содержимому</a>
@@ -14,6 +14,7 @@
   <div class="nav-caption">ИССЛЕДОВАТЬ</div>
   <nav class="nav">
     <button class="nav-link active" data-view="overview"><span class="ni">◈</span> Обзор <span class="nav-index">01</span></button>
+    <button class="nav-link" data-view="search"><span class="ni">⌕</span> Поиск по Атласу <span class="nav-index">⌘K</span></button>
     <button class="nav-link" data-view="insights"><span class="ni">✧</span> Выводы и объяснения <span class="nav-index">02</span></button>
     <button class="nav-link" data-view="map"><span class="ni">◎</span> Карта исследований <span class="nav-index">03</span></button>
     <button class="nav-link" data-view="topics"><span class="ni">▦</span> Темы <span class="nav-index">04</span></button>
@@ -30,7 +31,7 @@
   </div>
 </aside>
 <div class="workspace">
-  <header class="topbar"><button id="menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">☰</button><div class="breadcrumb">НАУЧНАЯ АНАЛИТИКА <span>/</span> <b id="breadcrumb-name" aria-live="polite">ОБЗОР</b></div><div class="top-actions"><span class="period-pill">2018 <span>—</span> 2026</span><button id="theme-btn" class="icon-btn" aria-label="Переключить тему">☼</button><a class="source-btn" href="https://drift.autumnfleet.com/i/all-conf/" target="_blank" rel="noopener">ПЕРВОИСТОЧНИК ↗</a></div></header>
+  <header class="topbar"><button id="menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">☰</button><div class="breadcrumb">НАУЧНАЯ АНАЛИТИКА <span>/</span> <b id="breadcrumb-name" aria-live="polite">ОБЗОР</b></div><div class="top-actions"><button id="global-search-btn" class="global-search-btn" type="button" aria-label="Искать по Атласу, Ctrl или Command плюс K"><span aria-hidden="true">⌕</span> <span class="global-search-label">Найти исследование</span><kbd>Ctrl K</kbd></button><span class="period-pill">2018 <span>—</span> 2026</span><button id="theme-btn" class="icon-btn" aria-label="Переключить тему">☼</button><a class="source-btn" href="https://drift.autumnfleet.com/i/all-conf/" target="_blank" rel="noopener">ПЕРВОИСТОЧНИК ↗</a></div></header>
   <main id="main-content">
   <section id="view-overview" class="view active">
     <div class="overview-hero">
@@ -46,6 +47,27 @@
     <div class="insights-teaser"><div><div class="eyebrow muted">НЕ ТОЛЬКО ГРАФИКИ</div><h2>Но что всё это означает?</h2><p>В карте видны научные направления, а в новом разделе мы объясняем, какие идеи за ними стоят, почему их исследуют и где посмотреть реальные статьи.</p></div><button class="primary-btn" data-goto="insights">Читать выводы простым языком ↗</button></div>
     <div class="section-head"><div><div class="eyebrow muted">ИНТЕРАКТИВНАЯ АНАЛИТИКА</div><h2>Три способа увидеть будущее</h2></div></div>
     <div class="feature-grid"><button class="feature-card" data-goto="map"><span class="feature-num">01 / КАРТА</span><div class="feature-icon">✺</div><h3>570 179 точек на одной карте</h3><p>Приближайте, меняйте годы, выбирайте тему и находите конкретные научные публикации.</p><b>ОТКРЫТЬ КАРТУ ↗</b></button><button class="feature-card" data-goto="trends"><span class="feature-num">02 / ДИНАМИКА</span><div class="feature-icon">↗</div><h3>Рост и спад технологий</h3><p>Динамические графики доли публикаций по годам — без маркетинговых прогнозов.</p><b>СМОТРЕТЬ ТРЕНДЫ ↗</b></button><button class="feature-card" data-goto="compare"><span class="feature-num">03 / СРАВНЕНИЕ</span><div class="feature-icon">⇆</div><h3>Сравните конференции</h3><p>NeurIPS против CVPR, первые годы против последних: сравнение по реальным научным тезисам.</p><b>СРАВНИТЬ ↗</b></button></div>
+  </section>
+  <section id="view-search" class="view">
+    <div class="page-head search-page-head"><div class="eyebrow muted">ГЛОБАЛЬНЫЙ ПОИСК / НАУЧНАЯ БАЗА</div>
+      <h1>Найдите главное в исследованиях ИИ<span class="heading-dot">.</span></h1>
+      <p>Один поиск вместо просмотра сотен страниц: 98 научных направлений, 30 объяснений на русском языке и названия 117 888 научных публикаций.</p>
+    </div>
+    <div class="search-shell">
+      <label class="search-label" for="search-query">ВАШ ВОПРОС ИЛИ ТЕХНОЛОГИЯ</label>
+      <div class="search-field"><span class="search-field-icon" aria-hidden="true">⌕</span><input id="search-query" type="search" maxlength="120" autocomplete="off" spellcheck="false" placeholder="Например: ИИ-агенты, reasoning, генерация видео, NeurIPS…"><button type="button" id="search-clear" class="search-clear" aria-label="Очистить поиск" hidden>Очистить ×</button></div>
+      <div id="search-suggestions" class="search-suggestions"><span>Попробуйте:</span><button type="button" data-query="агенты">ИИ-агенты</button><button type="button" data-query="рассуждения">Рассуждения</button><button type="button" data-query="multimodal">Мультимодальность</button><button type="button" data-query="robot">Робототехника</button><button type="button" data-query="безопасность">Безопасность</button></div>
+      <div class="search-tools"><div class="search-types" role="group" aria-label="Где искать">
+        <button type="button" data-search-type="all" aria-pressed="true">Везде</button>
+        <button type="button" data-search-type="topics" aria-pressed="false">Темы</button>
+        <button type="button" data-search-type="insights" aria-pressed="false">Выводы</button>
+        <button type="button" data-search-type="papers" aria-pressed="false">Публикации</button>
+      </div><div class="search-selects"><label>Год <select id="search-year" aria-label="Год научной публикации"><option value="all">Все годы</option></select></label><label>Конференция <select id="search-venue" aria-label="Конференция публикации"><option value="all">Все конференции</option></select></label></div></div>
+      <div class="search-result-head"><strong id="search-count" role="status" aria-live="polite">Готовим поиск…</strong><span id="search-state" role="status" aria-live="polite"></span></div>
+      <div id="search-results" class="search-results"></div>
+      <div class="search-more-wrap"><button id="search-more" type="button" class="primary-btn" hidden>Показать ещё результаты →</button></div>
+      <p class="search-limitations">Поиск по публикациям охватывает оригинальные <strong>названия статей</strong>, год и конференцию. Русские запросы частично сопоставляются с английскими терминами. Полные тексты статей и все 570 179 автоматически извлечённых научных тезисов пока не индексируются; открыть отдельный тезис можно через карту.</p>
+    </div>
   </section>
   <section id="view-insights" class="view">
     <div class="page-head"><div class="eyebrow muted">ПОНЯТНЫЙ ПУТЕВОДИТЕЛЬ ПО НАУКЕ</div>
@@ -101,4 +123,4 @@
 </div></div>
 <dialog id="claim-drawer" class="claim-drawer" aria-label="Научная публикация" closedby="any"><div class="drawer-inner"><button id="drawer-close" type="button" class="drawer-close" aria-label="Закрыть">×</button><div id="drawer-content" aria-live="polite"></div></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script type="module" src="./app.js?v=20261115-02"></script></body></html>
+<script type="module" src="./app.js?v=20261116-search01"></script></body></html>
