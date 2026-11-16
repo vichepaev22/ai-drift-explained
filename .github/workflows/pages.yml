@@ -142,6 +142,11 @@ jobs:
           test -s _site/data/map.json
           test -s _site/data/members.json
           test -s _site/data/papers.json
+          python3 - <<'PYSEARCH'
+          import json
+          with open('_site/data/papers.json',encoding='utf-8') as f: p=json.load(f)
+          print('PAPER INDEX SCHEMA:',[(key,type(value).__name__,len(value) if hasattr(value,'__len__') else '-') for key,value in p.items()],flush=True)
+          PYSEARCH
           du -sh _site
       - name: Install Chromium browser for end-to-end smoke test
         run: |
