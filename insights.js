@@ -103,3 +103,23 @@ export function wireInsights(data,topics,topicName,openTopic){
   });
   renderInsights(data,topics,topicName,openTopic);
 }
+
+/* Find the selected editorial observation even when it is beyond the first six.
+   Reset the category filter, render its complete card, and focus the heading. */
+export function revealInsight(data,topics,topicName,openTopic,id) {
+  const index=data?.stories?.findIndex(item=>item.id===id)??-1;
+  if(index<0)return false;
+  document.querySelectorAll('[data-insight-filter]').forEach(button=>
+    button.setAttribute('aria-pressed',String(button.dataset.insightFilter==='all')));
+  visibleLimit=Math.max(INSIGHTS_PAGE_SIZE,index+1);
+  renderInsights(data,topics,topicName,openTopic);
+  const heading=document.getElementById('insight-title-'+id);
+  if(heading){
+    heading.tabIndex=-1;
+    requestAnimationFrame(()=>{
+      heading.scrollIntoView({behavior:'instant',block:'center'});
+      heading.focus({preventScroll:true});
+    });
+  }
+  return true;
+}
