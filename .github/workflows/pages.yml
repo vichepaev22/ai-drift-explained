@@ -38,42 +38,78 @@ jobs:
         env:
           DISABLE_TELEMETRY: '1'
         run: npx --yes modern-web-guidance@1.0.0 legacy-scan .
-      - name: Download real Drift Inspector research data
+      - name: Restore immutable research corpus cache
+        uses: actions/cache@v4
+        with:
+          path: _site/data
+          key: drift-corpus-${{ hashFiles('insights-data.json') }}
+      - name: Download and validate real Drift Inspector research data
         shell: bash
         run: |
           python3 - <<'PY'
-          import os,json,urllib.request,concurrent.futures,shutil,time
-          BASE='https://drift.autumnfleet.com/d/all-conf/8284613a3ebc/'
-          out='_site/data'
-          os.makedirs(out+'/derived',exist_ok=True)
+          import os,json,urllib.request,concurrent.futures,shutil,time,sys
+          ORIGIN='https://drift.autumnfleet.com/d/all-conf/8284613a3ebc/'
+          MIRROR='https://vichepaev22.github.io/ai-drift-explained/data/'
+          OUT='_site/data'
+          os.makedirs(OUT+'/derived',exist_ok=True)
+          with open('insights-data.json',encoding='utf-8') as f:
+              expected=json.load(f)['provenance']['sourceFingerprint']
+          base_files=['manifest.json','topics.json','map.json','members.json','papers.json','derived/aggregates.json']
+          def valid_manifest(m):
+              return m.get('source_fingerprint')==expected and m.get('counts',{}).get('papers')==117888 and m['counts'].get('claims')==570179 and m['counts'].get('topics')==98
+          def corpus_files(m):
+              return base_files+[f'claims-{i:02d}.json' for i in range(m['claimShards'])]+[f'authors-{i:02d}.json' for i in range(m['authorShards'])]
+          try:
+              with open(OUT+'/manifest.json',encoding='utf-8') as f: cached=json.load(f)
+              if valid_manifest(cached) and all(os.path.getsize(os.path.join(OUT,x))>0 for x in corpus_files(cached)):
+                  print('Cache hit: complete, fingerprint-matched scientific corpus. No downloads required.',flush=True)
+                  sys.exit(0)
+          except (OSError,ValueError,KeyError) as e:
+              print('Cache not complete:',str(e)[:180],flush=True)
+          sources=[]
+          try:
+              req=urllib.request.Request(MIRROR+'manifest.json',headers={'User-Agent':'AI-Atlas/1.1'})
+              with urllib.request.urlopen(req,timeout=15) as r: mirror_manifest=json.load(r)
+              if valid_manifest(mirror_manifest):
+                  sources.append((MIRROR,35,2))
+                  print('Verified published GitHub Pages corpus mirror',flush=True)
+              else: print('Published mirror fingerprint differs: using original source',flush=True)
+          except Exception as e:
+              print('Published mirror unavailable; original source remains enabled:',repr(e),flush=True)
+          sources.append((ORIGIN,180,6))
           def fetch(rel):
-              dest=os.path.join(out,rel)
+              dest=os.path.join(OUT,rel)
               os.makedirs(os.path.dirname(dest),exist_ok=True)
-              for attempt in range(4):
-                  try:
-                      req=urllib.request.Request(BASE+rel,headers={'User-Agent':'DriftInspector-RU-Atlas/1.0 (educational research visualization)'})
-                      with urllib.request.urlopen(req,timeout=90) as r,open(dest+'.part','wb') as f:
-                          shutil.copyfileobj(r,f)
-                      os.replace(dest+'.part',dest)
-                      return (rel,os.path.getsize(dest))
-                  except Exception as e:
-                      if os.path.exists(dest+'.part'):os.unlink(dest+'.part')
-                      if attempt==3:raise RuntimeError(f'{rel}: {e}')
-                      time.sleep((attempt+1)*2)
-          first=['manifest.json','topics.json','map.json','members.json','papers.json','derived/aggregates.json']
-          with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-              for rel,n in pool.map(fetch,first):print('Downloaded',rel,n,flush=True)
-          with open(out+'/manifest.json',encoding='utf-8') as f:m=json.load(f)
-          assert m['counts']['papers']==117888 and m['counts']['claims']==570179 and m['counts']['topics']==98,m['counts']
-          files=[f'claims-{i:02d}.json' for i in range(m['claimShards'])]
-          # Author shards are retained for extended analysis and future filters.
-          files += [f'authors-{i:02d}.json' for i in range(m['authorShards'])]
+              if os.path.isfile(dest) and os.path.getsize(dest)>0:
+                  return rel,os.path.getsize(dest),'cached'
+              last=None
+              for base,timeout,attempts in sources:
+                  for attempt in range(attempts):
+                      try:
+                          req=urllib.request.Request(base+rel,headers={'User-Agent':'AI-Atlas/1.1 (research mirror)'})
+                          with urllib.request.urlopen(req,timeout=timeout) as r,open(dest+'.part','wb') as f:
+                              shutil.copyfileobj(r,f,length=128*1024)
+                          if os.path.getsize(dest+'.part')==0: raise ValueError('Empty response')
+                          os.replace(dest+'.part',dest)
+                          return rel,os.path.getsize(dest),base
+                      except Exception as e:
+                          last=e
+                          if os.path.exists(dest+'.part'): os.unlink(dest+'.part')
+                          if attempt+1<attempts: time.sleep(min(3*(attempt+1),15))
+              raise RuntimeError(f'{rel}: failed using all validated sources; last error: {last}')
+          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+              for rel,size,src in pool.map(fetch,base_files): print('Core file',rel,size,src,flush=True)
+          with open(OUT+'/manifest.json',encoding='utf-8') as f: m=json.load(f)
+          if not valid_manifest(m): raise RuntimeError('Downloaded scientific dataset version differs from editorial reference')
+          shards=[f'claims-{i:02d}.json' for i in range(m['claimShards'])]
+          shards += [f'authors-{i:02d}.json' for i in range(m['authorShards'])]
           total=0
-          with concurrent.futures.ThreadPoolExecutor(max_workers=16) as pool:
-              for idx,(rel,size) in enumerate(pool.map(fetch,files),1):
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+              for idx,(rel,size,src) in enumerate(pool.map(fetch,shards),1):
                   total+=size
-                  if idx%25==0:print('Downloaded shards',idx,'/',len(files),'bytes',total,flush=True)
-          print('COMPLETE: 570179 claims, 117888 papers, 98 topics;',len(files),'lazy-loaded shards',flush=True)
+                  if idx%25==0: print('Verified shards',idx,'/',len(shards),'bytes',total,flush=True)
+          assert all(os.path.isfile(os.path.join(OUT,x)) and os.path.getsize(os.path.join(OUT,x))>0 for x in corpus_files(m))
+          print('COMPLETE: fingerprint-matched scientific data,',len(shards),'shards,',total,'bytes',flush=True)
           PY
       - name: Prepare static website
         run: |
