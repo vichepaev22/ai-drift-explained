@@ -30,6 +30,37 @@ try {
   await page.goto(base,{waitUntil:'domcontentloaded',timeout:20000});
   await page.waitForFunction(()=>document.querySelector('#dataset-status')?.textContent.includes('Научная база доступна'),null,{timeout:30000});
   console.log('PASS: scientific metadata loaded');
+
+  // Global search must work across translated topics, editorial conclusions and the large paper catalog.
+  await page.locator('#global-search-btn').click();
+  assert.equal(await page.locator('#view-search').isVisible(),true,'Search opens from persistent topbar');
+  await page.locator('#search-query').fill('агенты');
+  await page.locator('#search-results [data-search-open="topic"]').first().waitFor({timeout:12000});
+  assert.ok(await page.locator('#search-results [data-search-open="insight"]').count()>0,'Editorial observations are searchable');
+  await page.locator('[data-search-type="papers"]').click();
+  await page.locator('#search-query').fill('robot');
+  await page.locator('#search-results [data-search-open="paper"]').first().waitFor({timeout:60000});
+  const foundOriginals=await page.locator('#search-results [data-search-open="paper"]').count();
+  assert.ok(foundOriginals>0,'The background index must find original research publications');
+  await page.locator('#search-results [data-search-open="paper"]').first().click();
+  await page.waitForFunction(()=>document.querySelector('#claim-drawer')?.matches(':modal'),null,{timeout:10000});
+  assert.match(await page.locator('#drawer-content').innerText(),/НАУЧНАЯ ПУБЛИКАЦИЯ/);
+  await page.keyboard.press('Escape');
+  await page.locator('[data-search-type="all"]').click();
+  await page.locator('#search-query').fill('агенты');
+  await page.locator('#search-results [data-search-open="topic"]').first().waitFor({timeout:12000});
+  await page.locator('#search-results [data-search-open="topic"]').first().click();
+  assert.equal(await page.locator('#view-topics').isVisible(),true,'Search should open the selected topic detail');
+  await page.keyboard.press('Control+k');
+  assert.equal(await page.locator('#view-search').isVisible(),true,'Ctrl+K opens global search');
+  assert.equal(await page.locator('#search-query').evaluate(el=>document.activeElement===el),true,'Search shortcut focuses input');
+  await page.locator('#search-query').fill('галлюцинации');
+  await page.locator('[data-search-type="insights"]').click();
+  await page.locator('#search-results [data-search-open="insight"]').first().waitFor({timeout:12000});
+  await page.locator('#search-results [data-search-open="insight"]').first().click();
+  assert.equal(await page.locator('#view-insights').isVisible(),true,'Search should reveal a scientific explanation');
+  console.log('PASS: unified Atlas search, bilingual matching, original papers, result links and shortcuts');
+
   await page.locator('[data-view="insights"]').click();
   assert.equal(await page.locator('#view-insights').isVisible(),true,'Explanatory guide must open');
   assert.equal(await page.locator('#insights-grid .insight-card').count(),6,'Initial editorial list should be manageable');
