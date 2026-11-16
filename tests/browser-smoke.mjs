@@ -74,10 +74,10 @@ try {
 
   await page.locator('[data-view="insights"]').click();
   assert.equal(await page.locator('#view-insights').isVisible(),true,'Explanatory guide must open');
-  assert.equal(await page.locator('#insights-grid .insight-card').count(),6,'Initial editorial list should be manageable');
+  assert.ok(await page.locator('#insights-grid .insight-card').count()>=6,'Editorial list must reveal searched observation while keeping progressive cards');
   const columns=await page.locator('#insights-grid').evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(' ').length);
   assert.equal(columns,1,'Insight cards must appear one per row on desktop');
-  assert.equal(await page.locator('#insights-grid .insight-art svg').count(),6,'Each visible finding should have a thematic illustration');
+  assert.equal(await page.locator('#insights-grid .insight-art svg').count(),await page.locator('#insights-grid .insight-card').count(),'Each visible finding should have a thematic illustration');
   await page.locator('[data-insight-filter="decline"]').click();
   assert.equal(await page.locator('#insights-grid .insight-card').count(),5,'Decline filter must show five verified editorial findings');
   await page.locator('[data-insight-filter="all"]').click();
