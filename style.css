@@ -350,3 +350,94 @@ dialog.claim-drawer::backdrop{overflow:hidden;overscroll-behavior:contain}
 
 /* Only defer cards well below the initial visible area, keeping the first findings immediately paintable. */
 .insight-card:nth-child(n+5){content-visibility:auto;contain-intrinsic-size:auto 490px}
+
+/* Illustrated science guide: one editorial conclusion per row, on every viewport. */
+.insights-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:26px;
+  width:min(100%,1050px);
+  margin-bottom:20px;
+}
+.insights-coverage{
+  max-width:780px;
+  margin:12px 0 0;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.75;
+}
+.insights-coverage strong{color:var(--text)}
+.insight-card{
+  display:block;
+  width:100%;
+  padding:0;
+  overflow:hidden;
+  border-radius:20px;
+  background:var(--panel);
+  box-shadow:0 12px 34px #050c1b29;
+}
+.insight-art{
+  width:100%;
+  margin:0;
+  height:clamp(190px,27vw,280px);
+  position:relative;
+  overflow:hidden;
+  background:#101c34;
+  border-bottom:1px solid #42617b;
+}
+.insight-art svg{display:block;width:100%;height:100%}
+.insight-art figcaption{
+  position:absolute;
+  left:18px;
+  bottom:14px;
+  max-width:calc(100% - 36px);
+  color:#cce5f2;
+  opacity:.8;
+  text-shadow:0 1px 6px #020811;
+  font-size:10px;
+  line-height:1.5;
+}
+.insight-card-body{padding:clamp(21px,3vw,35px)}
+.insight-card h2{
+  font-size:clamp(24px,2.6vw,32px);
+  max-width:820px;
+  margin:16px 0 13px;
+}
+.insight-card .insight-summary{
+  max-width:870px;
+  font-size:clamp(14px,1.45vw,16px);
+  line-height:1.8;
+}
+.insight-card .insight-meaning{
+  max-width:900px;
+  margin:20px 0;
+  padding:15px 17px;
+}
+.insight-card .insight-meaning p{font-size:14px;line-height:1.75}
+.insight-topic-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+.insights-more-wrap{
+  width:min(100%,1050px);
+  display:flex;
+  justify-content:center;
+  padding:0 0 44px;
+}
+.insights-more-wrap .primary-btn{min-width:230px}
+.insights-more-wrap:has(#insights-more[hidden]){display:none}
+@media(max-width:760px){
+  .insights-grid{gap:17px}
+  .insight-art{height:190px}
+  .insight-art figcaption{font-size:9px;left:12px;bottom:9px}
+  .insight-card{border-radius:14px}
+  .insight-card-body{padding:20px}
+  .insight-card h2{font-size:22px}
+  .insight-card .insight-meaning{padding:12px 14px}
+  .insight-topic-list{grid-template-columns:minmax(0,1fr)}
+  .insights-coverage{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .insight-card{scroll-behavior:auto}
+}
