@@ -39,7 +39,18 @@ try {
   assert.ok(await page.locator('#search-results [data-search-open="insight"]').count()>0,'Editorial observations are searchable');
   await page.locator('[data-search-type="papers"]').click();
   await page.locator('#search-query').fill('robot');
-  await page.locator('#search-results [data-search-open="paper"]').first().waitFor({timeout:60000});
+  try {
+    await page.locator('#search-results [data-search-open="paper"]').first().waitFor({timeout:25000});
+  }catch(e){
+    console.error('SEARCH DIAGNOSTIC:',JSON.stringify(await page.evaluate(()=>({
+      query:document.querySelector('#search-query')?.value,
+      count:document.querySelector('#search-count')?.textContent,
+      status:document.querySelector('#search-state')?.textContent,
+      summary:document.querySelector('#search-results')?.innerText?.slice(0,1200),
+      filter:[...document.querySelectorAll('[data-search-type]')].filter(x=>x.getAttribute('aria-pressed')==='true').map(x=>x.dataset.searchType)
+    }))));
+    throw e;
+  }
   const foundOriginals=await page.locator('#search-results [data-search-open="paper"]').count();
   assert.ok(foundOriginals>0,'The background index must find original research publications');
   await page.locator('#search-results [data-search-open="paper"]').first().click();
