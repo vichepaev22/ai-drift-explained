@@ -2,6 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validateInsights, topicExplanation} from '../insights.js';
+import {insightArt} from '../insight-art.js';
 const data=JSON.parse(fs.readFileSync(new URL('../insights-data.json',import.meta.url)));
 const validTopics=Array.from({length:98},(_,i)=>({id:i}));
 const manifest={source_fingerprint:data.provenance.sourceFingerprint};
@@ -18,7 +19,7 @@ test('Every research guide supplies clear language and two verifiable paper link
   }
 });
 test('Each insight links to an existing topic and editorial explanation is distinct from author paper',()=>{
-  assert.equal(data.stories.length,13);
+  assert.equal(data.stories.length,30);
   const ids=new Set();
   for(const insight of data.stories){
     assert.ok(!ids.has(insight.id));ids.add(insight.id);
@@ -39,4 +40,16 @@ test('Topic explanation protects against HTML inside source data',()=>{
   assert.ok(rendered.includes('&lt;script&gt;'));
   assert.ok(!rendered.includes('<script>'));
   assert.match(rendered,/публикации/);
+});
+
+test('Every expanded editorial finding has an accessible, distinct scientific illustration',()=>{
+  const ids=new Set(data.stories.map(s=>s.id));
+  assert.equal(ids.size,30);
+  for(const s of data.stories){
+    const svg=insightArt(s.id,s.title);
+    assert.match(svg,/<svg/);
+    assert.match(svg,/<figure class="insight-art"/);
+    assert.match(svg,/aria-label=/);
+    assert.ok(svg.length>800);
+  }
 });
