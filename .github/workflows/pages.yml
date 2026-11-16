@@ -30,6 +30,7 @@ jobs:
           node --check app.js
           node --check visual.js
           node --check insights.js
+          node --check insight-art.js
           node --check metrics.mjs
           node --test tests/*.test.mjs
       - name: Modern Web Guidance compatibility audit (informational)
@@ -77,7 +78,7 @@ jobs:
       - name: Prepare static website
         run: |
           mkdir -p _site/assets
-          cp index.html style.css app.js visual.js insights.js insights-data.json metrics.mjs _site/
+          cp index.html style.css app.js visual.js insights.js insight-art.js insights-data.json metrics.mjs _site/
           cp assets/favicon.svg assets/share.png _site/assets/
           mkdir -p _site/vendor
           curl --fail --location --retry 3 --silent --show-error https://cdnjs.cloudflare.com/ajax/libs/three.js/0.180.0/three.module.min.js -o _site/vendor/three.module.min.js
@@ -85,6 +86,7 @@ jobs:
           touch _site/.nojekyll
           test -s _site/metrics.mjs
           test -s _site/insights.js
+          test -s _site/insight-art.js
           test -s _site/insights-data.json
           python3 - <<'PYINSIGHTS'
           import json
