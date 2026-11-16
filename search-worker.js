@@ -10,8 +10,8 @@ async function ensurePapers(){
     if(!response.ok)throw Error('HTTP '+response.status+' при загрузке публикаций');
     const parsed=await response.json();
     if(!Array.isArray(parsed?.title)||!Array.isArray(parsed?.venue)||!Array.isArray(parsed?.year)||
-       !Array.isArray(parsed?.url)||parsed.title.length!==parsed.year.length||
-       parsed.venue.length!==parsed.title.length||parsed.url.length!==parsed.title.length)
+       parsed.title.length!==parsed.year.length||
+       parsed.venue.length!==parsed.title.length)
        throw Error('Некорректный формат каталога публикаций');
     data=parsed;
     return data;
@@ -40,7 +40,7 @@ self.onmessage=async({data:message})=>{
     found.sort((a,b)=>b.score-a.score||b.i-a.i);
     const items=found.slice(offset,offset+limit).map(({i})=>({
       index:i,title:String(corpus.title[i]||''),venue:String(corpus.venue[i]||''),
-      year:Number(corpus.year[i]),url:String(corpus.url[i]||'')
+      year:Number(corpus.year[i]),url:String(corpus.url?.[i]||'')
     }));
     self.postMessage({type:'results',seq,count,items,total:corpus.title.length});
   }catch(e){
