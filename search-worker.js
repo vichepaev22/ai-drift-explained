@@ -39,7 +39,7 @@ self.onmessage=async({data:message})=>{
     }
     found.sort((a,b)=>b.score-a.score||b.i-a.i);
     const items=found.slice(offset,offset+limit).map(({i})=>({
-      index:i,title:String(corpus.title[i]||''),venue:String(corpus.venue[i]||''),
+      type:'paper',index:i,title:String(corpus.title[i]||''),venue:String(corpus.venue[i]||''),
       year:Number(corpus.year[i]),url:String(corpus.url?.[i]||'')
     }));
     self.postMessage({type:'results',seq,count,items,total:corpus.title.length});
